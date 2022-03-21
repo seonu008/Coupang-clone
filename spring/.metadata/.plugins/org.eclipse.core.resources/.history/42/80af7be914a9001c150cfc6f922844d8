@@ -1,0 +1,41 @@
+package com.jjang051.model;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ItemDao {
+	
+	@Autowired
+	public SqlSessionFactory sqlSessionFactory;
+	
+	public int insertItem(ItemDto ItemDto) {
+		int result = 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		result = sqlSession.insert("insertItem",ItemDto);
+		sqlSession.commit();
+		sqlSession.close();
+		return result;
+	}
+	
+	
+	public List<ItemDto> getAllList(String pickedDate) {
+		List<ItemDto> ItemList = null;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		ItemList = sqlSession.selectList("getAllList",pickedDate);
+		sqlSession.close();
+		return ItemList;
+	}
+	
+}
+
+
+
+
+
+
+

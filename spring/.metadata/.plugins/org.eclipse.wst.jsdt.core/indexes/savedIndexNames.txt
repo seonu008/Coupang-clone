@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\simjh96\Coupang-Clone\spring\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+681464.index
+3872160110.index
+3379968431.index
+2709162608.index
+3275320706.index
+3447937773.index
+726449980.index

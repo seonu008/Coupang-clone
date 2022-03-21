@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;coupang-clone/src/main/java/com/jjang051&apos; to &apos;tis01&apos;" description="Rename resource &apos;jjang051&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/jjang051" name="tis01" stamp="1647865967476" updateReferences="true"/>
+</session>
