@@ -501,3 +501,4 @@
 2022-03-21 23:28:31,730 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\simjh96\Coupang-Clone\spring\12-spring-corona\src\main\resources
 2022-03-21 23:28:31,732 [Worker-40: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2022-03-21 23:28:31,733 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\simjh96\Coupang-Clone\spring\12-spring-corona\src\test\resources
+2022-03-21 23:43:14,629 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
