@@ -1,8 +1,7 @@
-INDEX VERSION 1.4+C:\Users\simjh96\Coupang-Clone\spring\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-681464.index
-3872160110.index
+INDEX VERSION 1.4+C:\Users\simjh96\OneDrive\¹®¼­\Coupang-Clone\spring\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2321819859.index
+3779788463.index
+1024264168.index
+1547518781.index
 3379968431.index
-2709162608.index
-3275320706.index
-3447937773.index
-726449980.index
+2936045191.index

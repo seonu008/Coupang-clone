@@ -12,8 +12,7 @@
 	rel="stylesheet" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet" />
-<link rel="stylesheet" href="css/reset.css" />
-<link rel="stylesheet" href="css/layout.css" />
+
 <script src="js/gsap/gsap.min.js"></script>
 <script src="js/axios.min.js"></script>
 <script src="js/jquery-3.6.0.min.js"></script>

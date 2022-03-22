@@ -1,13 +1,3 @@
 INDEX VERSION 1.131
-C:\Users\simjh96\Coupang-Clone\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\693344882.index
-\10-spring-member-board\src\main\java
-C:\Users\simjh96\Coupang-Clone\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1768686246.index
-\10-spring-member-board\src\main\java
-C:\Users\simjh96\Coupang-Clone\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3720128238.index
-\10-spring-member-board\src\main\java
-C:\Users\simjh96\Coupang-Clone\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1736637229.index
-\10-spring-member-board\src\main\java
-C:\Users\simjh96\Coupang-Clone\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3779788463.index
+C:\Users\simjh96\OneDrive\¹®¼­\Coupang-Clone\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3779788463.index
 \12-spring-corona\src\main\java
-C:\Users\simjh96\Coupang-Clone\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1236153088.index
-\coupang-clone\src\main\java
