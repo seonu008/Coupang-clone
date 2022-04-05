@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>welcome ${memberDto.id}</h1>
+<h1>welcome ${memberDto.name}</h1>
+<h1>welcome ${memberDto.password}</h1>
+<h1>welcome ${memberDto.zipcode}</h1>
 sample/member
 </body>
 </html>

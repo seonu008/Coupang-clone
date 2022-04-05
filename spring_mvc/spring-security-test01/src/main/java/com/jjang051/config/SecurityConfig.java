@@ -10,11 +10,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import com.jjang051.security.CustomLoginSuccessHandler;
+import com.jjang051.security.CustomUserDetailsService;
 
 import lombok.Setter;
 
@@ -23,6 +25,11 @@ import lombok.Setter;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Setter(onMethod_ = @Autowired)
 	private DataSource dataSource;
+	
+	@Bean
+	public UserDetailsService customUserService() {
+		return new CustomUserDetailsService();
+	}
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
@@ -36,10 +43,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		String queryUser = "select id, password, enabled from coupanguser where id = ? ";
-		String queryDetails = "select id, auth from coupanguser_auth where id = ? ";
-		System.out.println("pw1: "+passwordEncoder().encode("pw1"));
-		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder()).usersByUsernameQuery(queryUser).authoritiesByUsernameQuery(queryDetails);
+		auth.userDetailsService(customUserService()).passwordEncoder(passwordEncoder());
+		
+//		String queryUser = "select id, password, enabled from coupanguser where id = ? ";
+//		String queryDetails = "select id, auth from coupanguser_auth where id = ? ";
+//		System.out.println("pw1: "+passwordEncoder().encode("pw1"));
+//		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder()).usersByUsernameQuery(queryUser).authoritiesByUsernameQuery(queryDetails);
 	}
 	
 	@Bean
