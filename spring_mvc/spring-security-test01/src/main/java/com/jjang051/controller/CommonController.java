@@ -14,8 +14,6 @@ public class CommonController {
 	@GetMapping("/customLogin")
 	public void loginInput(String error, String logout, Model model) {
 		System.out.println("customLogin");
-		System.out.println(pwEncoder.encode("member"));
-	
 	}
 	
 	@GetMapping("/customLogout")

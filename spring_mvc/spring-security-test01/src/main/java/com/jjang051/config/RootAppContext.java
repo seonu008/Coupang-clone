@@ -35,7 +35,7 @@ public class RootAppContext {
 		System.out.println("히카리 데이터 소스");
 		HikariDataSource dataSource = new HikariDataSource(hikariConfig);
 		
-		return dataSource;
+		return (DataSource)dataSource;
 	}
 	
 	@Bean
