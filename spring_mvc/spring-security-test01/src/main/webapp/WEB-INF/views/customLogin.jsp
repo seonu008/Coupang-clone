@@ -16,6 +16,9 @@
 <input type='password' name='password' value='admin'>
 </div>
 <div>
+<input type='checkbox' name='remember-me'> remember me
+</div>
+<div>
 <input type='submit'>
 </div>
 <div>

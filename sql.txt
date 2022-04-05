@@ -10,9 +10,6 @@
 
 
 
-
-
-# user table
 CREATE TABLE COUPANGUSER (
     NO NUMBER(4) NOT NULL,
     ID VARCHAR2(100) NOT NULL CONSTRAINT COUPANGUSER_PK PRIMARY KEY,
@@ -39,3 +36,11 @@ INSERT INTO COUPANGUSER_AUTH VALUES (SEQ_COUPANGUSER_AUTH.nextval, 'test1', 'ROL
 INSERT INTO COUPANGUSER_AUTH VALUES (SEQ_COUPANGUSER_AUTH.nextval, 'test2', 'ROLE_MEMBER');
 
 COMMIT;
+
+
+--자동 로그인
+create table persistent_logins (
+username varchar2(64) not null,
+series varchar2(64) primary key,
+token varchar2(64) not null,
+last_used timestamp not null);

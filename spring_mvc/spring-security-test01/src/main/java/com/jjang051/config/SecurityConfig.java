@@ -14,6 +14,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import com.jjang051.security.CustomLoginSuccessHandler;
 import com.jjang051.security.CustomUserDetailsService;
@@ -31,6 +33,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		return new CustomUserDetailsService();
 	}
 	
+	@Bean
+	public PersistentTokenRepository persistentTokenRepository() {
+		JdbcTokenRepositoryImpl repo = new JdbcTokenRepositoryImpl();
+		repo.setDataSource(dataSource);
+		return repo;
+	}
+	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
@@ -39,6 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 		http.formLogin().loginPage("/customLogin").loginProcessingUrl("/login").successHandler(loginSuccessHandler());
 		http.logout().logoutUrl("/customLogout").invalidateHttpSession(true).deleteCookies("remember-me","JSESSION_ID");
+		
+		http.rememberMe().key("secret").tokenRepository(persistentTokenRepository()).tokenValiditySeconds(604800);
 	}
 	
 	@Override
