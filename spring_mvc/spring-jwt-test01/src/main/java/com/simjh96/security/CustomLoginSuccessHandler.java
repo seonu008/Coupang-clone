@@ -16,15 +16,18 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler{
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication auth) throws IOException, ServletException {
+		System.out.println("login success handler working!");
 		List<String> roleNames = new ArrayList<>();
 		auth.getAuthorities().forEach(authority -> {
 			roleNames.add(authority.getAuthority());
 		});
 		if (roleNames.contains("ROLE_MEMBER")) {
-			response.sendRedirect("./sample/member");
+			System.out.println("found Role_memeber in role list of "+ auth.getName());
+			response.sendRedirect("./home");
 			return;
 		}
-	response.sendRedirect("/");	
+	System.out.println("could not find Role_memeber in role list of "+ auth.getName());
+	response.sendRedirect("./home");	
 	}
 	
 

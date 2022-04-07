@@ -1,5 +1,7 @@
 package com.simjh96.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,6 +29,11 @@ public class HomeController {
 	@Autowired
 	private JwtUtil jwtTokenUtil;
 
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public void index() {
+		System.out.println("index controller 호출");
+	}
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home() {
 		System.out.println("home controller 호출");
@@ -40,7 +47,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/authentication", method = RequestMethod.POST)
-	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)
+	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest, HttpServletRequest request)
 			throws Exception {
 		
 		System.out.println("authentication requested: ");
@@ -52,8 +59,8 @@ public class HomeController {
 			throw new Exception("Incorrect username or password", e);
 		}
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getId());
-		final String jwt = jwtTokenUtil.generateToken(userDetails);
-		return ResponseEntity.ok(new AuthenticationResponse(jwt));
+		final String accessToken = jwtTokenUtil.generateToken(userDetails,request.getRequestURL().toString(), true);
+		return ResponseEntity.ok(new AuthenticationResponse(accessToken));
 
 	}
 }
