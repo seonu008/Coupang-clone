@@ -53,12 +53,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		filter.setForceEncoding(true);
 		http.addFilterBefore(filter, CsrfFilter.class);
 		http.authorizeRequests()
+			.antMatchers("/CustomLogin.do").permitAll()
+			.antMatchers("/CustomLogout.do").permitAll()
+			.antMatchers("/login").permitAll()
 			.antMatchers("/").access("hasRole('ROLE_MEMBER')")
 			.antMatchers("/SearchPage.do").access("hasRole('ROLE_MEMBER')")
 			.anyRequest().authenticated();
 
-		http.formLogin().loginPage("/customLogin").loginProcessingUrl("/login").successHandler(loginSuccessHandler());
-		http.logout().logoutUrl("/customLogout").invalidateHttpSession(true).deleteCookies("remember-me","JSESSION_ID");
+		http.formLogin().loginPage("/CustomLogin.do").loginProcessingUrl("/login").successHandler(loginSuccessHandler());
+		http.logout().logoutUrl("/CustomLogout.do").invalidateHttpSession(true).deleteCookies("remember-me","JSESSION_ID");
 		
 		http.rememberMe().key("secret").tokenRepository(persistentTokenRepository()).tokenValiditySeconds(604800);
 	}

@@ -34,7 +34,13 @@ public class HomeController {
 		return "searchPage";
 	}
 
-	@GetMapping("/CustomLogout")
+	@GetMapping("/CustomLogin.do")
+	public String loginInput(String error, String logout, Model model) {
+		System.out.println("customLogin");
+		return "customLogin";
+	}	
+	
+	@GetMapping("/CustomLogout.do")
 	public String customLogout(HttpSession session, HttpServletResponse response) throws Exception {
 		session.invalidate();
 		return "customLogout";

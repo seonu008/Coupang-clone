@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>custom logout page</h1>
-<form method='post' action="./customLogout">
+<form method='post' action="./CustomLogout.do">
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 <button>logout</button>
 </form>
