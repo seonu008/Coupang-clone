@@ -19,11 +19,26 @@
 <input type='checkbox' name='remember-me'> remember me
 </div>
 <div>
-<input type='submit'>
+<input type='submit' class="btnConfirm">
 </div>
 <div>
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 </div>
 </form>
 </body>
+   <script>
+   
+    $(".btnConfirm").on("click",function(){
+    	if($("#user_id").val()==="") {
+    		alert("아이디를 입력하세요.");
+    		$("#user_id").focus();
+    		return false;
+    	} else if($("#user_pw").val()==="") {
+    		alert("비밀번호를 입력하세요.");
+    		$("#user_pw").focus();
+    		return false;
+    	} 
+    });
+    
+    </script>
 </html>

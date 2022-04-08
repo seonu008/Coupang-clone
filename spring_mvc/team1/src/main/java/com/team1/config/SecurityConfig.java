@@ -1,5 +1,6 @@
 package com.team1.config;
 
+import javax.servlet.Filter;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 import com.team1.security.CustomLoginSuccessHandler;
 import com.team1.security.CustomUserDetailsService;
@@ -27,7 +32,7 @@ import lombok.Setter;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Setter(onMethod_ = @Autowired)
 	private DataSource dataSource;
-	
+		
 	@Bean
 	public UserDetailsService customUserService() {
 		return new CustomUserDetailsService();
@@ -42,8 +47,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
+//		http.addFilterBefore(characterEncodingFilter(), AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME)
+		CharacterEncodingFilter filter = new CharacterEncodingFilter();
+		filter.setEncoding("UTF-8");
+		filter.setForceEncoding(true);
+		http.addFilterBefore(filter, CsrfFilter.class);
 		http.authorizeRequests()
-			.antMatchers("/").access("hasRole('ROLE_MEMBER')");
+			.antMatchers("/").access("hasRole('ROLE_MEMBER')")
+			.antMatchers("/SearchPage.do").access("hasRole('ROLE_MEMBER')")
+			.anyRequest().authenticated();
 
 		http.formLogin().loginPage("/customLogin").loginProcessingUrl("/login").successHandler(loginSuccessHandler());
 		http.logout().logoutUrl("/customLogout").invalidateHttpSession(true).deleteCookies("remember-me","JSESSION_ID");

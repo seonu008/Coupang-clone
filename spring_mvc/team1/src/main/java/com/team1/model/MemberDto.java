@@ -3,7 +3,10 @@ package com.team1.model;
 import java.sql.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
+
 
 @Data
 public class MemberDto {

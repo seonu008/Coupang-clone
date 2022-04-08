@@ -1,4 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,14 +12,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/searchPage.css" />
-    <script src="js/gsap/gsap.min.js"></script>
-    <script src="js/axios.min.js"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/mainPage.css" />
+    <script src="../js/gsap/gsap.min.js"></script>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/searchPage.js" defer></script>
+    <script src="../js/searchPage.js" defer></script>
   </head>
   <body>
     <article class="topBar">
@@ -29,7 +33,7 @@
     </article>
     <div class="searchBox">
       <div class="logo">
-        <a href=""><img src="image/layout/sampleLogo.png"/></a>
+        <a href=""><img src="../image/layout/sampleLogo.png"/></a>
       </div>
       <div class="searchBar">
         <select name="search_select" id="search_select">
@@ -56,8 +60,3 @@
         </li>
       </ul>
     </div>
-    <div class="searchProduct">
-      <ul class="searchResult"></ul>
-    </div>
-  </body>
-</html>
