@@ -1,5 +1,5 @@
 $.ajax({
-	url: "Items.do",
+	url: "item/Items.do",
 	dataType: "json",
 	success: function(data) {
 		// data = object

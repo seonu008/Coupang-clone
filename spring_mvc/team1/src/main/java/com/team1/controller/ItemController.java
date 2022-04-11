@@ -5,26 +5,33 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.team1.model.ItemDao;
 import com.team1.model.ItemDto;
 import com.team1.model.SearchService;
 
 @Controller
-public class SearchProcessController {
+@RequestMapping("/item")
+public class ItemController {
 	
 	@Autowired
 	ItemDto itemDto;
 	
 	@Autowired
 	SearchService searchDao;
+	
+	@Autowired
+	ItemDao itemDao;
+	
+	@RequestMapping(value = "/SearchPage.do", method = RequestMethod.GET)
+	public String SearchPage() {
+		return "searchPage";
+	}
 	
 	@ResponseBody
 	@RequestMapping(value="/SearchProcess.do", method=RequestMethod.GET)
@@ -44,6 +51,16 @@ public class SearchProcessController {
 		
 		return hashMap;
 	} 
+
 	
+	@ResponseBody
+	@RequestMapping("/Items.do")
+	public Map<String,List<ItemDto>> jsonList() {
+		System.out.println("items controller start");
+		Map<String,List<ItemDto>> hashMap = new HashMap<>();
+		List<ItemDto> itemList = itemDao.getAllItemList();
+		hashMap.put("itemList",itemList);
+		return hashMap;
+	}
 
 }

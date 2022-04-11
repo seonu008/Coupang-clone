@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-//		http.addFilterBefore(characterEncodingFilter(), AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME)
+		
 		CharacterEncodingFilter filter = new CharacterEncodingFilter();
 		filter.setEncoding("UTF-8");
 		filter.setForceEncoding(true);
@@ -56,9 +56,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/CustomLogin.do").permitAll()
 			.antMatchers("/CustomLogout.do").permitAll()
 			.antMatchers("/login").permitAll()
-			.antMatchers("/").access("hasRole('ROLE_MEMBER')")
-			.antMatchers("/SearchPage.do").access("hasRole('ROLE_MEMBER')")
-			.anyRequest().authenticated();
+			.antMatchers("/member/*").access("hasRole('ROLE_MEMBER')");
+//			.antMatchers("/").access("hasRole('ROLE_MEMBER')")
+//			.antMatchers("/SearchPage.do").access("hasRole('ROLE_MEMBER')")
+//			.anyRequest().authenticated();
 
 		http.formLogin().loginPage("/CustomLogin.do").loginProcessingUrl("/login").successHandler(loginSuccessHandler());
 		http.logout().logoutUrl("/CustomLogout.do").invalidateHttpSession(true).deleteCookies("remember-me","JSESSION_ID");

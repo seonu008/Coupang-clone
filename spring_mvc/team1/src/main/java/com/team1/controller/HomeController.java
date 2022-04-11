@@ -1,19 +1,31 @@
 package com.team1.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.team1.model.MemberDto;
+import com.team1.model.MemberService;
 
 
 
 @Controller
 public class HomeController {
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		System.out.println("home controller 호출");
@@ -29,10 +41,7 @@ public class HomeController {
 		return "detail";
 	}
 
-	@RequestMapping(value = "/SearchPage.do", method = RequestMethod.GET)
-	public String SearchPage() {
-		return "searchPage";
-	}
+
 
 	@GetMapping("/CustomLogin.do")
 	public String loginInput(String error, String logout, Model model) {
@@ -45,5 +54,5 @@ public class HomeController {
 		session.invalidate();
 		return "customLogout";
 	}
-
+	
 }
