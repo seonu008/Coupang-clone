@@ -6,7 +6,7 @@
 		<h2 class="subTitle">JOIN</h2>
 		<div id="contents">
 			<!-- 데이터 받아서 처리하기....forward방식으로 데이터 보여주기....  -->
-			<form method="POST" action="../member/JoinProcess.do" id="join"
+			<form method="POST" action="JoinProcess.do" id="join"
 				class="form">
 				
 				<table class="left">
@@ -85,7 +85,7 @@
 		});
 
 		$.ajax({
-			url : "../member/IDCheck.do",
+			url : "IDCheck.do",
 			type : "POST",
 			data : {
 				"id" : id

@@ -101,6 +101,17 @@ public class MemberDao implements MemberService  {
 	public int getTotal(String search_select, String search_word) {
 		return 0;
 	}
+
+	@Override
+	public int insertMemberAuth(AuthDto authDto) {
+		int result = 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		System.out.println("insertMemberAuth authDto: "+ authDto);
+		result = sqlSession.insert("insertMemberAuth",authDto);
+		sqlSession.commit();
+		sqlSession.close();
+		return result;
+	}
 	
 }
 

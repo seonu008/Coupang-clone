@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.team1.model.AuthDto;
 import com.team1.model.MemberDto;
 import com.team1.model.MemberService;
 
@@ -44,8 +45,13 @@ public class JoinController {
 		//file데이터
 		memberDto.setPassword(passwordEncoder.encode(memberDto.getPassword()));
 		int result = memberDao.insertMember(memberDto);
+		
+		AuthDto authDto = new AuthDto(memberDto.getId(), "ROLE_MEMBER");
+		int result2 = memberDao.insertMemberAuth(authDto);
 		System.out.println("memberDto :"+memberDto);
+		System.out.println("authDto :"+authDto);
 		System.out.println("joinprocess insert :"+result);
+		System.out.println("joinprocess insert :"+result2);
 		return;
 	}
 	@ResponseBody    

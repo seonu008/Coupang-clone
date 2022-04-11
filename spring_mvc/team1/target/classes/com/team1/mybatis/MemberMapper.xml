@@ -18,46 +18,62 @@
 	</resultMap>
 
 	<select id="read" resultMap="memberMap">
-		SELECT mem.id, password, enabled, name, phone, zipcode, address, regdate,
-		auth FROM COUPANGUSER mem LEFT OUTER JOIN COUPANGUSER_AUTH auth on
-		mem.id = auth.id WHERE mem.id = #{id}
+		SELECT mem.id, password, enabled,
+		name, phone, zipcode, address, regdate,
+		auth FROM COUPANGUSER mem LEFT
+		OUTER JOIN COUPANGUSER_AUTH auth on
+		mem.id = auth.id WHERE mem.id =
+		#{id}
 	</select>
-	<select id="getAllMemberList" resultType="MemberDto" parameterType="HashMap">
-		SELECT * FROM 
-			(SELECT ROWNUM AS NUM,B.* FROM 
-				(SELECT * FROM COUPANGUSER
-					ORDER BY NO DESC
-				) B
-			) 
+	<select id="getAllMemberList" resultType="MemberDto"
+		parameterType="HashMap">
+		SELECT * FROM
+		(SELECT ROWNUM AS NUM,B.* FROM
+		(SELECT * FROM COUPANGUSER
+		ORDER BY NO DESC
+		) B
+		)
 		WHERE NUM BETWEEN #{start} AND #{end}
 	</select>
-	<select id="getMemberSelectOne" resultType="MemberDto" parameterType="String"  >
+	<select id="getMemberSelectOne" resultType="MemberDto"
+		parameterType="String">
 		SELECT * FROM COUPANGUSER WHERE ID = #{id}
 	</select>
 
-		<insert id="insertMember" parameterType="MemberDto">
-		INSERT INTO COUPANGUSER VALUES (SEQ_COUPANGUSER.NEXTVAL,
-								   #{id},
-								   #{password},
-								   '1',
-								   #{name},
-								   #{phone},
-								   NULL,
-								   NULL,
-								   SYSDATE
+	<insert id="insertMember" parameterType="MemberDto">
+		INSERT INTO COUPANGUSER
+		VALUES (SEQ_COUPANGUSER.NEXTVAL,
+		#{id},
+		#{password},
+		'1',
+		#{name},
+		#{phone},
+		NULL,
+		NULL,
+		SYSDATE
 		)
 	</insert>
-		<update id="updateMember" parameterType="MemberDto">
+	
+	<insert id="insertMemberAuth" parameterType="AuthDto">
+		INSERT INTO COUPANGUSER_AUTH
+		VALUES (SEQ_COUPANGUSER_AUTH.NEXTVAL,
+		#{id},
+		#{auth}
+		)
+	</insert>
+	
+	<update id="updateMember" parameterType="MemberDto">
 		UPDATE COUPANGUSER SET
-						  NAME     =  #{name}, 
-		                  PHONE    =  #{phone}, 
-		                  ZIPCODE  =  #{zipCode},
-		                  ADDRESS  =  #{address}
-		                  WHERE ID =  #{id}
+		NAME = #{name},
+		PHONE = #{phone},
+		ZIPCODE = #{zipCode},
+		ADDRESS = #{address}
+		WHERE ID = #{id}
 	</update>
-	
+
 	<select id="idCheck" parameterType="String" resultType="Integer">
-		SELECT COUNT(*) FROM COUPANGUSER WHERE ID = #{id}
+		SELECT
+		COUNT(*) FROM COUPANGUSER WHERE ID = #{id}
 	</select>
-	
+
 </mapper>
