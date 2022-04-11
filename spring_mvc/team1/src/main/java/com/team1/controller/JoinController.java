@@ -40,7 +40,7 @@ public class JoinController {
 	}
 	
 	@PostMapping("/JoinProcess.do")
-	public void joinProcess(MemberDto memberDto,HttpServletRequest request, HttpServletResponse response,MultipartFile multipartFile) throws Exception {
+	public String joinProcess(MemberDto memberDto,HttpServletRequest request, HttpServletResponse response,MultipartFile multipartFile) throws Exception {
 		
 		//file데이터
 		memberDto.setPassword(passwordEncoder.encode(memberDto.getPassword()));
@@ -52,7 +52,8 @@ public class JoinController {
 		System.out.println("authDto :"+authDto);
 		System.out.println("joinprocess insert :"+result);
 		System.out.println("joinprocess insert :"+result2);
-		return;
+		
+		return"redirect:../CustomLogin.do";
 	}
 	@ResponseBody    
 	@PostMapping("/IDCheck.do")

@@ -34,8 +34,8 @@
 	<article class="topBar">
 		<section>
 			<menu id="headerMenu">
-				<li id="login" class="login"><a href="">로그인</a></li>
-				<li id="join" class="join"><a href="">회원가입</a></li>
+				<li id="login" class="login"><a href="/team1/CustomLogin.do">로그인</a></li>
+				<li id="join" class="join"><a href="/team1/join/Join.do">회원가입</a></li>
 				<li class="csCenter"><a href="">고객센터</a></li>
 			</menu>
 		</section>
