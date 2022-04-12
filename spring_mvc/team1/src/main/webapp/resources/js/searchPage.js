@@ -27,7 +27,7 @@ function SearchEvent() {
 			if (item.rating == null){
 				//item.rating="0";
 				output += `
-		          <a href="" data-caption="${item.title}">
+		          <a href="../Detail.do?no=${item.no}" data-caption="${item.title}">
 			        <li class="item" data-no="${item.no}">
 			            <div class="imgBox">
 			              <img src="${item.imgUrl}" alt="" />
@@ -42,7 +42,7 @@ function SearchEvent() {
 		      `;
 			} else {
 				output += `
-		          <a href="" data-caption="${item.title}">
+		          <a href="../Detail.do?no=${item.no}" data-caption="${item.title}">
 			        <li class="item" data-no="${item.no}">
 			            <div class="imgBox">
 			              <img src="${item.imgUrl}" alt="" />

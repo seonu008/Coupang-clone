@@ -67,6 +67,43 @@
 					</table>
 				</div>
 			</div>
+			<div class="deliveryAddress">
+				<div class="dABox">
+					<div class="dAHeader">
+						<h2 class="dA_h2">받는사람정보</h2>
+						<button type="button" class="dAUpdate">배송지변경</button>
+					</div>
+					<table class="dATable">
+						<tbody>
+							<tr>
+								<td class="dA_col dA_col_1">이름</td>
+								<td class="dA_col dA_col_2">${memberDto.name}</td>
+							</tr>
+							<tr>
+								<td class="dA_col dA_col_1">배송주소</td>
+								<td class="dA_col dA_col_2">${memberDto.address}</td>
+							</tr>
+							<tr>
+								<td class="dA_col dA_col_1">휴대폰 번호</td>
+								<td class="dA_col dA_col_2">${memberDto.phone}</td>
+							</tr>
+							<tr>
+								<td class="dA_col dA_col_1">배송 요청사항</td>
+								<td class="dA_col dA_col_2">직접 받고 부재시 문 앞</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="deliveryInfo">
+				<h2 class="dI_h2">배송 X건 중 X</h2>
+				<div class="dIBox">
+					<div class="arrivalInformation">
+						<p>${memberDto.regdate} 도착 보장</p>
+					</div>
+					<div class="bundleItemList"></div>
+				</div>
+			</div>
 		</section>
 	</div>
 </main>

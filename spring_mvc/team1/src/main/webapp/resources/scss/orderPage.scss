@@ -121,5 +121,73 @@
         }
       }
     }
+    .deliveryAddress {
+      .dABox {
+        margin-top: 30px;
+        .dAHeader {
+          display: flex;
+          align-items: center;
+          margin-bottom: 8px;
+          .dA_h2 {
+            padding-left: 2px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+          }
+          .dAUpdate {
+            padding: 4px 8px;
+            border: 1px solid #999;
+            color: #333;
+            border-radius: 2px;
+            font-size: 11px;
+            margin-left: 10px;
+          }
+        }
+      }
+      .dATable {
+        font-size: 14px;
+        width: 100%;
+        border-top: 2px solid #cecece;
+        .dA_col_1 {
+          width: 104px;
+          border: solid #e4e4e4;
+          border-width: 0 1px 1px 0;
+          padding: 7px 10px 7px 15px;
+          font-weight: 700;
+          text-align: right;
+          background: #f4f4f4;
+        }
+        .dA_col_2 {
+          border-bottom: 1px solid #e4e4e4;
+          padding: 10px 16px;
+        }
+      }
+    }
+  }
+}
+.deliveryInfo {
+  .dI_h2 {
+    margin-top: 20px;
+    margin-bottom: 9px;
+    padding-left: 2px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+  }
+  .dIBox {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    .arrivalInformation {
+      background-color: #eee;
+      padding: 10px 15px 10px 20px;
+      line-height: 26px;
+      p {
+        font-size: 16px;
+        color: #00891a;
+      }
+    }
+    .bundleItemList {
+    }
   }
 }
