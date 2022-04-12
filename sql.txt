@@ -44,3 +44,11 @@ username varchar2(64) not null,
 series varchar2(64) primary key,
 token varchar2(64) not null,
 last_used timestamp not null);
+
+
+-- 특정 컬럼이 속한 테이블 찾기
+SELECT * FROM COLS WHERE COLUMN_NAME = 'IMGURL';
+
+-- 특정 컬럼내 데이터명 일괄변경
+UPDATE "TIS002"."ITEM" SET IMGURL = REPLACE(IMGURL,'12-spring-corona','team1');
+UPDATE "TIS002"."ITEM" SET IMGURL = REPLACE(IMGDETAILURL,'12-spring-corona','team1');

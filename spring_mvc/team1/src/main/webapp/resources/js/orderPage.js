@@ -3,12 +3,7 @@
 $.ajax({
 	url: "OrderPage.do",
 	success: function(data) {
-		let arr = data.itemList; 
-		
-		let title = $(document).attr('title') ;
-		let key = arr.find((item) => {
-				return item.no == title;
-		});
+
 		console.log(key);
 		let output = "";
 			output += `
