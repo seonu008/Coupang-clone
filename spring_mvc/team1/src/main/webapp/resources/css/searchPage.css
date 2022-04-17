@@ -42,9 +42,17 @@
 
 .searchProduct ul a li .info .itemTitle { margin-top: 5px; font-size: 14px; line-height: 1.3em; }
 
-.searchProduct ul a li .info .itemRating { color: #111; font-size: 12px; }
+.searchProduct ul a li .info .itemShipping { margin-top: 5px; }
 
-.searchProduct ul a li .info .itemPrice { color: #ae0000; }
+.searchProduct ul a li .info .itemPrice { margin-top: 5px; color: #ae0000; }
+
+.searchProduct ul a li .info .itemRating { margin-top: 5px; }
+
+.searchProduct ul a li .info .itemRating .stars { position: relative; font-size: 13px; width: 103.5px; }
+
+.searchProduct ul a li .info .itemRating .stars .stars-back { position: absolute; overflow: hidden; white-space: nowrap; color: transparent; text-shadow: 0 0 0 #f0f0f0; }
+
+.searchProduct ul a li .info .itemRating .stars .stars-real { position: absolute; overflow: hidden; white-space: nowrap; color: transparent; text-shadow: 0 0 0 #ed9931; }
 
 .main-today .img { width: 1920px; height: 450px; background-image: url("/team1/images/main-today.img.jpg"); }
 

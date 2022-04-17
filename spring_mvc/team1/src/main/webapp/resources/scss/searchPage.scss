@@ -109,14 +109,34 @@
             font-size: 14px;
             line-height: 1.3em;
           }
-          .itemRating {
-            color: #111;
-            font-size: 12px;
-          }
           .itemShipping {
+            margin-top: 5px;
           }
           .itemPrice {
+            margin-top: 5px;
             color: #ae0000;
+          }
+          .itemRating {
+            margin-top: 5px;
+            .stars {
+              position: relative;
+              font-size: 13px;
+              width: 103.5px;
+              .stars-back {
+                position: absolute;
+                overflow: hidden;
+                white-space: nowrap;
+                color: transparent;
+                text-shadow: 0 0 0 #f0f0f0;
+              }
+              .stars-real {
+                position: absolute;
+                overflow: hidden;
+                white-space: nowrap;
+                color: transparent;
+                text-shadow: 0 0 0 #ed9931;
+              }
+            }
           }
         }
       }

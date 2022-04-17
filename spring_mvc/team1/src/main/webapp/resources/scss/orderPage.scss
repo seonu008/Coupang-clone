@@ -122,6 +122,9 @@
       }
     }
     .deliveryAddress {
+      .savePaymentOption {
+        margin-top: 5px;
+      }
       .dABox {
         margin-top: 30px;
         .dAHeader {
@@ -163,31 +166,77 @@
         }
       }
     }
-  }
-}
-.deliveryInfo {
-  .dI_h2 {
-    margin-top: 20px;
-    margin-bottom: 9px;
-    padding-left: 2px;
-    font-size: 20px;
-    font-weight: 700;
-    color: #333;
-  }
-  .dIBox {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    .arrivalInformation {
-      background-color: #eee;
-      padding: 10px 15px 10px 20px;
-      line-height: 26px;
-      p {
-        font-size: 16px;
-        color: #00891a;
+    .deliveryInfo {
+      .dI_h2 {
+        margin-top: 20px;
+        margin-bottom: 9px;
+        padding-left: 2px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #333;
+      }
+      .dIBox {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        .arrivalInformation {
+          background-color: #eee;
+          padding: 10px 15px 10px 20px;
+          line-height: 26px;
+          p {
+            font-size: 16px;
+            color: #00891a;
+          }
+        }
+        .bundleItemList {
+          padding: 10px 15px 10px 20px;
+        }
       }
     }
-    .bundleItemList {
+    .agreeBox {
+      display: flex;
+      justify-content: center;
+      width: 520px;
+      height: 60px;
+      box-sizing: border-box;
+      margin: 50px auto;
+      //margin-top: 50px;
+      .ordResetBtn {
+        width: 250px;
+        height: 60px;
+        background-color: #fff;
+        border: 2px solid #4285f4;
+        border-radius: 3px;
+        margin-right: 20px;
+        a {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          color: #4285f4;
+          text-decoration: none;
+          font-size: 25px;
+          font-weight: 500;
+        }
+      }
+      .ordAgreeBtn {
+        width: 250px;
+        height: 60px;
+        background-color: #4285f4;
+        border-radius: 3px;
+        a {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          color: #fff;
+          text-decoration: none;
+          font-size: 25px;
+          font-weight: 500;
+        }
+      }
     }
   }
 }

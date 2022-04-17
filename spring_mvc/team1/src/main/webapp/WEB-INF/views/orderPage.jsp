@@ -101,8 +101,66 @@
 					<div class="arrivalInformation">
 						<p>${memberDto.regdate} 도착 보장</p>
 					</div>
-					<div class="bundleItemList"></div>
+					<div class="bundleItemList">
+						<p>제품명</p>
+					</div>
 				</div>
+			</div>
+			<div class="deliveryAddress">
+				<div class="dABox">
+					<div class="dAHeader">
+						<h2 class="dA_h2">결제정보</h2>
+					</div>
+					<table class="dATable">
+						<tbody>
+							<tr>
+								<td class="dA_col dA_col_1">총상품가격</td>
+								<td class="dA_col dA_col_2">원</td>
+							</tr>
+							<tr>
+								<td class="dA_col dA_col_1">배송비</td>
+								<td class="dA_col dA_col_2">원</td>
+							</tr>
+							<tr>
+								<td class="dA_col dA_col_1">총결제금액</td>
+								<td class="dA_col dA_col_2">원</td>
+							</tr>
+							<tr>
+								<td class="dA_col dA_col_1">결제방법</td>
+								<td class="dA_col dA_col_2">
+									<input class="payTypeSelector" type="radio" checked>
+									<label class="payTypeLabel">
+										<span class="payTypeTxt">계좌이체</span>
+									</label>
+									<input class="payTypeSelector" type="radio">
+									<label class="payTypeLabel">
+										<span class="payTypeTxt">신용/체크카드</span>
+									</label>
+									<input class="payTypeSelector" type="radio">
+									<label class="payTypeLabel">
+										<span class="payTypeTxt">법인카드</span>
+									</label>
+									<input class="payTypeSelector" type="radio">
+									<label class="payTypeLabel">
+										<span class="payTypeTxt">휴대폰</span>
+									</label>
+									<input class="payTypeSelector" type="radio">
+									<label class="payTypeLabel">
+										<span class="payTypeTxt">무통장입금(가상계좌)</span>
+									</label>
+									<div class="savePaymentOption">
+										<input class="savePaymentOption_checkBox" type="checkbox">
+										<label class="savePaymentOption_Txt">선택한 결제수단으로 향후 결제 이용에 동의합니다.</label>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="agreeBox">
+				<button type="button" class="ordResetBtn"><a href="">취소</a></button>
+				<button type="button" class="ordAgreeBtn"><a href="">결제하기</a></button>
 			</div>
 		</section>
 	</div>
