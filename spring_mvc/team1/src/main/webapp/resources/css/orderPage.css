@@ -40,7 +40,7 @@
 
 #wrap #ord .customer .ctBox .ctTable .ct_col_2 { border-bottom: 1px solid #e4e4e4; padding: 10px 16px; }
 
-#wrap #ord .customer .ctBox .ctTable .ct_col_2 .ctPhoneBox .ctPhoneForm .ctPhoneInput { height: 22px; padding: 0 0 0 5px; border: 1px solid #ddd; font-size: 12px; color: #333; }
+#wrap #ord .customer .ctBox .ctTable .ct_col_2 .ctPhoneBox .ctPhoneForm .ctPhoneInput { height: 22px; padding: 0 0 0 5px; border: 1px solid #ddd; font-size: 12px; color: #333; outline: none; }
 
 #wrap #ord .customer .ctBox .ctTable .ct_col_2 .ctPhoneBox .ctPhoneForm .ctPhoneUpdate { padding: 4px 8px; border: 1px solid #999; color: #333; border-radius: 2px; font-size: 11px; }
 
@@ -63,6 +63,10 @@
 #wrap #ord .deliveryAddress .dATable .dA_col_1 { width: 104px; border: solid #e4e4e4; border-width: 0 1px 1px 0; padding: 7px 10px 7px 15px; font-weight: 700; text-align: right; background: #f4f4f4; }
 
 #wrap #ord .deliveryAddress .dATable .dA_col_2 { border-bottom: 1px solid #e4e4e4; padding: 10px 16px; }
+
+#wrap #ord .deliveryAddress .dATable .dA_col_2 #zipcode { border: 1px solid #ddd; padding: 4px; font-size: 12px; outline: none; }
+
+#wrap #ord .deliveryAddress .dATable .dA_col_2 .address_detail { border: 1px solid #ddd; padding: 4px; font-size: 12px; outline: none; }
 
 #wrap #ord .deliveryInfo .dI_h2 { margin-top: 20px; margin-bottom: 9px; padding-left: 2px; font-size: 20px; font-weight: 700; color: #333; }
 

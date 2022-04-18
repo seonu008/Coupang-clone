@@ -1,3 +1,5 @@
+@import "vars";
+@import "mixins";
 .topBar {
   background-color: #f0f0f0;
   section {
@@ -84,57 +86,109 @@
     }
   }
 }
-.searchProduct {
-  margin: 0 100px;
-  ul {
+#searchWrap {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .searchContentsBox {
+    width: 1289px;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    a {
-      text-decoration: none;
-      color: #000;
-      margin-bottom: 10px;
-      margin: 10px;
-      li {
-        width: 252px;
-        height: 511px;
-        padding: 10px 0 5px 10px;
-        box-sizing: border-box;
-        border: 1px solid transparent;
-        overflow: hidden;
-        transition: box-shadow 0.2s ease;
-        .info {
-          .itemTitle {
-            margin-top: 5px;
+    position: relative;
+    margin: 0 auto;
+    .search_filter {
+      width: 15%;
+      .search_filter_content {
+        border: 1px solid #eee;
+        border-bottom: none;
+        margin: 0 15px;
+        padding-left: 10px;
+        h4 {
+          padding-top: 20px;
+          font-size: 18px;
+          line-height: 1.5;
+        }
+        .search_filter_category {
+          padding: 0 10px 8px;
+          border-bottom: 1px solid #efefef;
+          h5 {
+            padding-top: 10px;
             font-size: 14px;
-            line-height: 1.3em;
           }
-          .itemShipping {
-            margin-top: 5px;
-          }
-          .itemPrice {
-            margin-top: 5px;
-            color: #ae0000;
-          }
-          .itemRating {
-            margin-top: 5px;
-            .stars {
-              position: relative;
-              font-size: 13px;
-              width: 103.5px;
-              .stars-back {
-                position: absolute;
-                overflow: hidden;
-                white-space: nowrap;
-                color: transparent;
-                text-shadow: 0 0 0 #f0f0f0;
+          .search_category_component {
+            .search_filter_items {
+              .search_filter_item {
+                .search_category_title {
+                  margin: 8px 0;
+                  font-size: 12px;
+                }
               }
-              .stars-real {
-                position: absolute;
-                overflow: hidden;
-                white-space: nowrap;
-                color: transparent;
-                text-shadow: 0 0 0 #ed9931;
+            }
+          }
+        }
+      }
+    }
+    .searchProduct {
+      width: 100%;
+      margin: 0 auto;
+      #searchRStitle {
+        font-size: 18px;
+        font-weight: 500;
+      }
+      ul {
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        a {
+          text-decoration: none;
+          color: #000;
+          margin-bottom: 10px;
+          margin: 10px;
+          li {
+            width: 252px;
+            height: 511px;
+            padding: 10px 0 5px 10px;
+            box-sizing: border-box;
+            &:hover {
+              box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+              transition: opacity 0.2s ease, box-shadow 0.2s ease;
+            }
+            .info {
+              .itemTitle {
+                margin-top: 5px;
+                font-size: 14px;
+                line-height: 1.3em;
+              }
+              .itemShipping {
+                margin-top: 5px;
+              }
+              .itemPrice {
+                margin-top: 5px;
+                color: #ae0000;
+              }
+              .itemRating {
+                margin-top: 5px;
+                .stars {
+                  position: relative;
+                  font-size: 13px;
+                  width: 89.3px;
+                  .stars-back {
+                    display: flex;
+                    position: absolute;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    color: transparent;
+                    text-shadow: 0 0 0 #f0f0f0;
+                  }
+                  .stars-real {
+                    display: flex;
+                    position: absolute;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    color: transparent;
+                    text-shadow: 0 0 0 #ed9931;
+                  }
+                }
               }
             }
           }

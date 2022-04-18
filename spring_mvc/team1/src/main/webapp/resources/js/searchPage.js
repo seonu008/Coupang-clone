@@ -3,16 +3,19 @@ console.log($("document"));
 console.log($(".search"));
 
 $(".search").on("click", () => {
-  console.log("clicked");
   SearchEvent();
+  let searchWord = document.querySelector("#search_word").value;
+  document.getElementById('searchRStitle').innerHTML = `'${searchWord}'`+'에 대한 검색 결과';
 });
 
 $("#search_word").on("keydown", function (e) {
   if (e.key === "Enter") {
-    console.log("entered");
+    let searchWord = document.querySelector("#search_word").value;
+    document.getElementById('searchRStitle').innerHTML = `'${searchWord}'` +'에 대한 검색 결과';
     SearchEvent();
   }
 });
+
 function SearchEvent() {
   let searchSelect = document.querySelector("#search_select").value;
   let searchWord = document.querySelector("#search_word").value;
@@ -21,8 +24,10 @@ function SearchEvent() {
     success: function (res) {
       const list = res.searchList;
       let output = "";
+      `<h2>${searchWord}에 대한 검색 결과</h2>`
       $.each(list, (idx, item) => {
         console.log(item);
+        
         if (item.shipping == null) item.shipping = "";
         if (item.rating == null) {
           //item.rating="0";
@@ -36,6 +41,17 @@ function SearchEvent() {
 						  <p class="itemTitle">${item.title}</p>
 			              <p class="itemShipping">${item.shipping}</p>
 			              <p class="itemPrice">${item.price}원</p>
+			              <div class="itemRating">
+                        <div class="stars">
+                          <div class="stars-back">
+                            <label for="rate1">⭐</label>
+                            <label for="rate1">⭐</label>
+                            <label for="rate1">⭐</label>
+                            <label for="rate1">⭐</label>
+                            <label for="rate1">⭐</label>
+                          </div>
+                        </div>
+                    </div>
 			            </div>
 			        </li>
 		          </a>
@@ -54,18 +70,18 @@ function SearchEvent() {
 										<div class="itemRating">
 												<div class="stars">
 													<div class="stars-back">
-														<label for="rate1">⭐</label>
-														<label for="rate1">⭐</label>
-														<label for="rate1">⭐</label>
-														<label for="rate1">⭐</label>
-														<label for="rate1">⭐</label>
+                            <label for="rate1">⭐</label>
+                            <label for="rate1">⭐</label>
+                            <label for="rate1">⭐</label>
+                            <label for="rate1">⭐</label>
+                            <label for="rate1">⭐</label>
 													</div>
 													<div class="stars-real" style="width:calc(${item.rating}/5*100%);">
-														<label for="rate1">⭐</label>
-														<label for="rate1">⭐</label>
-														<label for="rate1">⭐</label>
-														<label for="rate1">⭐</label>
-														<label for="rate1">⭐</label>
+  													<label for="rate1">⭐</label>
+  													<label for="rate1">⭐</label>
+  													<label for="rate1">⭐</label>
+  													<label for="rate1">⭐</label>
+  													<label for="rate1">⭐</label>
 													</div>
 												</div>
 										</div>
