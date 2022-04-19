@@ -21,7 +21,7 @@ public class InsertController {
 	
 	@RequestMapping(value="/Insert.do", method=RequestMethod.GET)
 	public String insert() throws FileNotFoundException, IOException, CsvValidationException {
-		  try (CSVReader reader = new CSVReader(new FileReader("C:\\Users\\simjh96\\Coupang-Clone\\items.csv"))) {
+		  try (CSVReader reader = new CSVReader(new FileReader("C:\\Users\\SEONU\\Documents\\Coupang-Clone\\items.csv"))) {
 		      String[] lineInArray;
 		      reader.readNext();
 		      while ((lineInArray = reader.readNext()) != null) {

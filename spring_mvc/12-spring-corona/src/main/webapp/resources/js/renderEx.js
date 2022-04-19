@@ -1,6 +1,8 @@
 $.ajax({
-	url: "Items.do",
+	url: "cartItems.do",
 	success: function(res) {
+		
+		
 		console.log(res);
 
 		const list = res.itemList;
@@ -27,4 +29,6 @@ $.ajax({
 		});
 		$("ul").html(output);
 	}
+	
+	
 });
