@@ -13,10 +13,17 @@
 		)
 	</insert>
 	<select id="getAllItemList" resultType="ItemDto">
-		SELECT * FROM ITEM ORDER BY
+		SELECT * FROM ITEM ORDER
+		BY
 		NO DESC
 	</select>
-	<select id="getSearchAllList" resultType="ItemDto" parameterType="HashMap">
-		SELECT * FROM ITEM WHERE ${searchSelect} LIKE '%'||#{searchWord}||'%'
+	<select id="getItemByNo" resultType="ItemDto"
+		parameterType="String">
+		SELECT * FROM ITEM WHERE NO = #{no}
+	</select>
+	<select id="getSearchAllList" resultType="ItemDto"
+		parameterType="HashMap">
+		SELECT * FROM ITEM WHERE ${searchSelect} LIKE
+		'%'||#{searchWord}||'%'
 	</select>
 </mapper>

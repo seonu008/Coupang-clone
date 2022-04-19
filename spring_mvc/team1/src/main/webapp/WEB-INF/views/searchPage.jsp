@@ -41,7 +41,7 @@
 	</article>
 	<div class="searchBox">
 		<div class="logo">
-			<a href=""><img src="/team1/image/layout/sampleLogo.png" /></a>
+			<a href="/team1"><img src="/team1/image/layout/sampleLogo.png" /></a>
 		</div>
 		<div class="searchBar">
 			<select name="search_select" id="search_select">
