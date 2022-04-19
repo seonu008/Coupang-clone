@@ -54,3 +54,6 @@ UPDATE "TIS002"."ITEM" SET IMGURL = REPLACE(IMGURL,'12-spring-corona','team1');
 UPDATE "TIS002"."ITEM" SET IMGDETAILURL = REPLACE(IMGDETAILURL,'12-spring-corona','team1');
 
 나는 원숭이가 아니다
+
+이것은 원숭이다
+
