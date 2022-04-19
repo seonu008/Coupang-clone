@@ -6,6 +6,7 @@
 		<typeAlias type="com.team1.model.ItemDto" alias="ItemDto" />
 		<typeAlias type="com.team1.model.MemberDto" alias="MemberDto" />
 		<typeAlias type="com.team1.model.AuthDto" alias="AuthDto" />
+		<typeAlias type="com.team1.model.CartDto" alias="CartDto" />
 	</typeAliases>
 </configuration>
 

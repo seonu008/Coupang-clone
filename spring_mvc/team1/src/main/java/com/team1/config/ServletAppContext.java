@@ -26,6 +26,8 @@ public class ServletAppContext implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 		registry.addResourceHandler("/**").addResourceLocations("/resources/"); // js, css, img 등등 처리하기 위한거
+		
+		// images, team1/images 모두 추가
 		registry.addResourceHandler("/team1/images/**").addResourceLocations("file:///C:/images/");
 		registry.addResourceHandler("/images/**").addResourceLocations("file:///C:/images/");
 	}
