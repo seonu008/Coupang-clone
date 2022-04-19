@@ -52,3 +52,6 @@ SELECT * FROM COLS WHERE COLUMN_NAME = 'IMGURL';
 -- 특정 컬럼내 데이터명 일괄변경
 UPDATE "TIS002"."ITEM" SET IMGURL = REPLACE(IMGURL,'12-spring-corona','team1');
 UPDATE "TIS002"."ITEM" SET IMGDETAILURL = REPLACE(IMGDETAILURL,'12-spring-corona','team1');
+
+
+이것은 원숭이다
