@@ -17,8 +17,7 @@
 		BY
 		NO DESC
 	</select>
-	<select id="getItemByNo" resultType="ItemDto"
-		parameterType="String">
+	<select id="getItemByNo" resultType="ItemDto"	parameterType="String">
 		SELECT * FROM ITEM WHERE NO = #{no}
 	</select>
 	<select id="getSearchAllList" resultType="ItemDto"

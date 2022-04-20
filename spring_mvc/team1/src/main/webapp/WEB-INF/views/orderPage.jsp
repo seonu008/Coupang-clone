@@ -165,13 +165,14 @@
 				</div>
 			</div>
 			<div class="deliveryInfo">
-				<h2 class="dI_h2">배송 X건 중 X</h2>
+				<h2 class="dI_h2">배송정보</h2>
 				<div class="dIBox">
 					<div class="arrivalInformation">
 						<p>${memberDto.regdate} 도착 보장</p>
 					</div>
 					<div class="bundleItemList">
-						<p>제품명</p>
+                <div class="bundleTitle">제품이름${key.title}</div>
+                <div class="bundleDeliveryPrice">수량 1개 / 배송비 2,500원</div>
 					</div>
 				</div>
 			</div>
@@ -184,15 +185,15 @@
 						<tbody>
 							<tr>
 								<td class="dA_col dA_col_1">총상품가격</td>
-								<td class="dA_col dA_col_2">원</td>
+								<td class="dA_col dA_col_2">${key.price }원</td>
 							</tr>
 							<tr>
 								<td class="dA_col dA_col_1">배송비</td>
-								<td class="dA_col dA_col_2">원</td>
+								<td class="dA_col dA_col_2">2,500원</td>
 							</tr>
 							<tr>
 								<td class="dA_col dA_col_1">총결제금액</td>
-								<td class="dA_col dA_col_2">원</td>
+								<td class="dA_col dA_col_2">${key.price }원</td>
 							</tr>
 							<tr>
 								<td class="dA_col dA_col_1">결제방법</td>

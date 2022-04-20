@@ -2,11 +2,11 @@ console.log("hellow");
 console.log($("document"));
 console.log($(".search"));
 
-let searchWord = document.querySelector("#search_word").value;
-if (searchWord != null) {
+//let searchWord = document.querySelector("#search_word").value;
+/*if (searchWord != null) {
 	console.log("req param get!");
 	SearchEvent();
-}
+}*/
 
 $(".search").on("click", () => {
   SearchEvent();

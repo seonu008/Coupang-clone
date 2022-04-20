@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.team1.model.ItemDao;
+import com.team1.model.ItemDto;
 import com.team1.model.MemberDto;
 import com.team1.model.MemberService;
 import com.team1.mybatis.MemberMapper;
@@ -39,6 +41,9 @@ public class MemberController {
 	@Setter(onMethod_ = { @Autowired })
 	private MemberMapper memberMapper;
 
+	@Autowired
+	ItemDao itemDao;
+	
 	@GetMapping("/List.do")
 	public String list(HttpServletRequest request, Model model) {
 		List<MemberDto> memberList = memberDao.getAllMemberList(1, 5, null, null);
@@ -47,13 +52,22 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/OrderPage.do", method = RequestMethod.GET)
-	public String OrderPage(Principal principal, Model model) {
+	public String OrderPage(Principal principal, Model model, HttpServletRequest req) {
 //		System.out.println("현재 로그인 id: " + principal.getName());
 //		System.out.println("현재 로그인 한 사람 정보" + this.memberMapper.read(principal.getName()));
 
 		model.addAttribute("memberDto", this.memberMapper.read(principal.getName()));
 
 		String memberInfo = this.memberMapper.read(principal.getName()).toString();
+		
+		ItemDto itemDto = itemDao.getItemByNo(req.getParameter("no"));
+		model.addAttribute("key",itemDto);
+		
+		String no = req.getParameter("no");
+
+		model.addAttribute("no", no);
+		
+		
 		return "orderPage";
 	}
 

@@ -26,7 +26,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <link rel="stylesheet" href="/team1/css/orderPage.css" />
-<script src="/team1/js/orderPage.js" defer></script>
 <link rel="stylesheet" href="/team1/css/searchPage.css" />
 <script src="/team1/js/header.js" defer></script>
 <script src="/team1/js/searchPage.js" defer></script>
