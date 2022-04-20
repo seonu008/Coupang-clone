@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="/team1/css/reset.css" />
 <link rel="stylesheet" href="/team1/css/layout.css" />
 <link rel="stylesheet" href="/team1/css/mainPage.css" />
+<link rel="stylesheet" href="/team1/css/detail.css" />
 <script src="/team1/js/gsap/gsap.min.js"></script>
 <script src="/team1/js/axios.min.js"></script>
 <script src="/team1/js/jquery-3.6.0.min.js"></script>

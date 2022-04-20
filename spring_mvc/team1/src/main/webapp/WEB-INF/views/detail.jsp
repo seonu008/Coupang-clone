@@ -27,9 +27,10 @@
             <tbody>
               <tr>
                 <td>
-                <span class="rating"></span>
-                <span id="rating" class="${key.rating}"><img src="image/rating.svg" /></span>
-                <span id="star"></span></td>
+	                <span class="rating"></span>
+	                <span id="rating" class="${key.rating}"><img src="image/rating.svg" /></span>
+	                <span id="star"></span>
+                </td>
               </tr>
             </tbody>
           </div>
@@ -47,7 +48,7 @@
                 </div>
               <div>
                 <div>
-                    <span class="shipping">${key.shipping}</span></td>
+                    <span class="shipping">${key.shipping}</span>
                 </div>
                 <div>
                   <div class="prodPdd">

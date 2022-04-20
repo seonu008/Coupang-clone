@@ -1,7 +1,36 @@
 @charset "UTF-8";
-body, div, dl, dt, dd, ul, ol, menu, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, th, td, p, a { margin: 0; padding: 0; list-style: none; text-decoration: none; }
-
-body { padding: 100px 0; font-family: "apple sd gothic neo", "맑은 고딕", "malgun gothic", sans-serif; }
+/*body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+menu,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+blockquote,
+th,
+td,
+p,
+a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+*/
+body { font-family: "apple sd gothic neo", "맑은 고딕", "malgun gothic", sans-serif; }
 
 .prodBuy { display: -webkit-box; display: -ms-flexbox; display: flex; width: 100%; margin: 0 auto; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; position: relative; }
 
@@ -95,7 +124,7 @@ body { padding: 100px 0; font-family: "apple sd gothic neo", "맑은 고딕", "m
 
 .prodBuy .info .prodBtns .btns .btns2 .material-icons { position: absolute; right: 10; top: 8px; }
 
-.prodBuy .CartTable { z-index: 10; border: 1px solid #ccc; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 10px; width: 254px; height: 116px; position: absolute; bottom: 95px; right: 170px; background: #fff; display: -webkit-box; display: -ms-flexbox; display: none; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.prodBuy .CartTable { z-index: 10; border: 1px solid #ccc; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 10px; width: 254px; height: 116px; position: absolute; bottom: 95px; right: 170px; background: #fff; display: none; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
 .prodBuy .CartTable::after { content: ""; position: absolute; bottom: -9px; left: 50%; margin-left: -6px; border-left: 9px solid transparent; border-right: 9px solid transparent; border-top: 9px solid #fff; }
 
