@@ -5,19 +5,16 @@ console.log($(".search"));
 let searchWord = document.querySelector("#search_word").value;
 if (searchWord != null) {
 	console.log("req param get!");
+	document.getElementById('searchRStitle').innerHTML = `'${searchWord}'`+'에 대한 검색 결과';
 	SearchEvent();
 }
 
 $(".search").on("click", () => {
   SearchEvent();
-  let searchWord = document.querySelector("#search_word").value;
-  document.getElementById('searchRStitle').innerHTML = `'${searchWord}'`+'에 대한 검색 결과';
 });
 
 $("#search_word").on("keydown", function (e) {
   if (e.key === "Enter") {
-    let searchWord = document.querySelector("#search_word").value;
-    document.getElementById('searchRStitle').innerHTML = `'${searchWord}'` +'에 대한 검색 결과';
     SearchEvent();
   }
 });

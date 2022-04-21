@@ -4,25 +4,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.team1.model.CartDao;
 import com.team1.model.CartDto;
+import com.team1.model.ItemDto;
 
 @Controller
 public class CartController {
 
 	@Autowired
 	private CartDao cartDao;
+	@Autowired
+	ItemDto itemDto;
 
 	@GetMapping("/cartItems.do")
 	@ResponseBody
@@ -44,13 +43,9 @@ public class CartController {
 	public boolean updateItem(CartDto vo) {
 		System.out.println("어?");
 		
-		
 		return cartDao.updateCart(vo);
-		
 	}
-	
-	
-	
+
 	@RequestMapping(value="/CartEx.do", method=RequestMethod.GET)
 	public String renderEx() {
 		return "cartEx";

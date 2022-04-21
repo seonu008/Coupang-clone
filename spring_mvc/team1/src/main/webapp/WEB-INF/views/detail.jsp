@@ -91,7 +91,7 @@
                 </div>
               </div>
               <div id="btns" class="btns">
-                <a href="" id="btns1" class="btns1">장바구니 담기</a>
+                <a href="./InsertCart.do?no=${key.no}" id="btns1" class="btns1">장바구니 담기</a>
                 <a href="./member/OrderPage.do?no=${key.no}" id="btns2" class="btns2">바로구매<span class="material-icons">
                   chevron_right
                   </span></a>
