@@ -6,20 +6,24 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.team1.model.CartDao;
 import com.team1.model.CartDto;
+import com.team1.model.ItemDto;
 
 @Controller
 public class CartController {
 
 	@Autowired
 	private CartDao cartDao;
+	@Autowired
+	ItemDto itemDto;
 
-	@RequestMapping("/cartItems.do")
+	@GetMapping("/cartItems.do")
 	@ResponseBody
 	public Map<String, List<CartDto>> getItem(CartDto vo) {
 		
@@ -34,7 +38,14 @@ public class CartController {
 		
 	}
 	
-	
+	@RequestMapping("/updateCartItem.do")
+	@ResponseBody
+	public boolean updateItem(CartDto vo) {
+		System.out.println("어?");
+		
+		return cartDao.updateCart(vo);
+	}
+
 	@RequestMapping(value="/CartEx.do", method=RequestMethod.GET)
 	public String renderEx() {
 		return "cartEx";

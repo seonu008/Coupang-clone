@@ -32,6 +32,26 @@ public class CartDao {
 //	}
 
 	
+	public boolean updateCart(CartDto dto) {
+		System.out.println(dto);
+		SqlSession sqlSession = null;
+		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
+			try {
+				sqlSession = sqlSessionFactory.openSession();
+				sqlSession.selectList("updateCart", dto);
+				return true;
+			} catch (Exception e) {
+				System.out.println("updateCart 에러발생");
+				e.printStackTrace();
+				return false;
+			} finally {
+				sqlSession.close();
+			}
+		}
+		return false;
+	}
+
+
 	public List<CartDto> getCartList(CartDto dto) {
 		System.out.println(dto);
 		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
@@ -44,6 +64,12 @@ public class CartDao {
 			return null;
 		}
 	}
+
+
+
+
+
+
 }
 
 

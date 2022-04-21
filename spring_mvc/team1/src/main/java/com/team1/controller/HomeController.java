@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.team1.model.ItemDao;
+import com.team1.model.ItemDto;
 import com.team1.model.MemberDto;
 import com.team1.model.MemberService;
 
@@ -26,6 +28,9 @@ import com.team1.model.MemberService;
 @Controller
 public class HomeController {
 
+	@Autowired
+	ItemDao itemDao;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		System.out.println("home controller 호출");
@@ -34,15 +39,18 @@ public class HomeController {
 
 	@RequestMapping(value = "/Detail.do", method = RequestMethod.GET)
 	public String renderDetail(Model model, HttpServletRequest req) throws Exception {
+
+		
+		ItemDto itemDto = itemDao.getItemByNo(req.getParameter("no"));
+		model.addAttribute("key",itemDto);
+		
+		
 		String no = req.getParameter("no");
-		System.out.println(no);
 
 		model.addAttribute("no", no);
 		return "detail";
 	}
-
-
-
+	
 	@GetMapping("/CustomLogin.do")
 	public String loginInput(String error, String logout, Model model) {
 		System.out.println("customLogin");

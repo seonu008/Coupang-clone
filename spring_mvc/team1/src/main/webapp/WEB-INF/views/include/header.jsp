@@ -19,14 +19,15 @@
 <link rel="stylesheet" href="/team1/css/reset.css" />
 <link rel="stylesheet" href="/team1/css/layout.css" />
 <link rel="stylesheet" href="/team1/css/mainPage.css" />
+<link rel="stylesheet" href="/team1/css/detail.css" />
 <script src="/team1/js/gsap/gsap.min.js"></script>
 <script src="/team1/js/axios.min.js"></script>
 <script src="/team1/js/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <link rel="stylesheet" href="/team1/css/orderPage.css" />
-<script src="/team1/js/orderPage.js" defer></script>
 <link rel="stylesheet" href="/team1/css/searchPage.css" />
+<script src="/team1/js/header.js" defer></script>
 <script src="/team1/js/searchPage.js" defer></script>
 <script src="/team1/js/renderDetail.js" defer></script>
 </head>
@@ -42,7 +43,7 @@
 	</article>
 	<div class="searchBox">
 		<div class="logo">
-			<a href=""><img src="/team1/image/layout/sampleLogo.png" /></a>
+			<a href="/team1"><img src="/team1/image/layout/sampleLogo.png" /></a>
 		</div>
 		<div class="searchBar">
 			<select name="search_select" id="search_select">
@@ -50,14 +51,14 @@
 				<option value="title">식품</option>
 				<option value="title">의류</option>
 				<option value="title">생필품</option>
-			</select> <input type="text" placeholder="검색할 내용을 입력해 주세요." name="search_word"
+			</select> <input type="text" placeholder="검색할 내용을 입력해 주세요." name="search_word" class="to_search_word " 
 				id="search_word" value="${param.search_word }" />
-			<button class="btn btnBlack search">
+			<button class="btn btnBlack to_search search">
 				<span class="material-icons">search</span>
 			</button>
 		</div>
 		<ul class="iconMenu">
-			<li><a href="member/OrderPage.do"> <span
+			<li><a href="/team1/member/OrderPage.do"> <span
 					class="material-icons-outlined">person</span> <span>마이쿠팡</span>
 			</a></li>
 			<li><a href="/CartView.do"> <span

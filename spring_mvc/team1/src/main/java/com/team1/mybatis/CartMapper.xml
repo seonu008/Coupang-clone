@@ -32,13 +32,7 @@
 	<!-- 장바구니 업데이트 -->
 	<update id="updateCart" parameterType="CartDto">
 		UPDATE CART
-		   SET USER_ID = USER_ID
-			<if test="itemNo != null and itemNo != 0">
-		     , ITEM_AMOUNT = #{itemNo}
-			</if>
-			<if test="itemAmount != null and itemAmount != 0">
-		     , ITEM_AMOUNT = #{itemAmount}
-			</if>
+		   SET ITEM_AMOUNT = #{itemAmount}
 			<if test="price != null and price != 0">
 		     , PRICE = #{price}
 			</if>

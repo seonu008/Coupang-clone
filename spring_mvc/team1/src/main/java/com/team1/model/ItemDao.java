@@ -30,6 +30,15 @@ public class ItemDao {
 		sqlSession.close();
 		return itemList;
 	}
+	public ItemDto getItemByNo(String no) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		ItemDto itemDto = new ItemDto();
+		itemDto = sqlSession.selectOne("getItemByNo", no);
+		sqlSession.close();
+		return itemDto;
+	}
+
+
 	
 }
 
