@@ -9,20 +9,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CartDao {
-	
+
 	@Autowired
 	public SqlSessionFactory sqlSessionFactory;
 
-	public int selectCountCart (CartDto dto) {
+	public int selectCountCart(CartDto dto) {
 		System.out.println(dto);
 		SqlSession sqlSession = null;
-		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
+		if (dto.getUserId() != null && !"".equals(dto.getUserId())) {
 			try {
 				sqlSession = sqlSessionFactory.openSession();
-				int result = (Integer)sqlSession.selectOne("selectCountCart", dto);
+				int result = (Integer) sqlSession.selectOne("selectCountCart", dto);
 				sqlSession.close();
 				return result;
-				
+
 			} catch (Exception e) {
 				System.out.println("selectCountCart 에러발생");
 				e.printStackTrace();
@@ -33,16 +33,19 @@ public class CartDao {
 		}
 		return 0;
 	}
-	
 
 	public boolean insertCart(CartDto dto) {
 		System.out.println(dto);
 		SqlSession sqlSession = null;
-		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
+		if (dto.getUserId() != null && !"".equals(dto.getUserId())) {
+			// 중복인지 체크
 			int cnt = selectCountCart(dto);
-			if(cnt > 0) {
+			if (cnt > 0) {
+				// 중복시 수량 업데이트
 				return updateCart(dto);
 			} else if (cnt == 0) {
+				// 중복이 아니면 insert 시작
+
 				// insert
 				try {
 					sqlSession = sqlSessionFactory.openSession();
@@ -59,16 +62,15 @@ public class CartDao {
 			} else {
 				return false;
 			}
-			
+
 		}
 		return false;
 	}
-	
-	
+
 	public boolean updateCart(CartDto dto) {
 		System.out.println(dto);
 		SqlSession sqlSession = null;
-		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
+		if (dto.getUserId() != null && !"".equals(dto.getUserId())) {
 			try {
 				sqlSession = sqlSessionFactory.openSession();
 				sqlSession.update("updateCart", dto);
@@ -84,11 +86,11 @@ public class CartDao {
 		}
 		return false;
 	}
-	
+
 	public boolean deleteCart(CartDto dto) {
 		System.out.println(dto);
 		SqlSession sqlSession = null;
-		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
+		if (dto.getUserId() != null && !"".equals(dto.getUserId())) {
 			try {
 				sqlSession = sqlSessionFactory.openSession();
 				sqlSession.delete("deleteCart", dto);
@@ -105,11 +107,9 @@ public class CartDao {
 		return false;
 	}
 
-
-
 	public List<CartDto> getCartList(CartDto dto) {
 		System.out.println(dto);
-		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
+		if (dto.getUserId() != null && !"".equals(dto.getUserId())) {
 			List<CartDto> cartList = null;
 			SqlSession sqlSession = sqlSessionFactory.openSession();
 			cartList = sqlSession.selectList("selectCartList", dto);
@@ -120,16 +120,4 @@ public class CartDao {
 		}
 	}
 
-
-
-
-
-
 }
-
-
-
-
-
-
-

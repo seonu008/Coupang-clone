@@ -40,6 +40,18 @@ public class CartController {
 
 	}
 
+	/**
+	 *
+	 * Test Url
+	 * /insertCartItem.do?userId=test01&itemNo=6&itemAmount=8&price=3000&shipping=1
+	 * 
+	 * @param String userId
+	 * @param int    itemNo
+	 * @param int    itemAmount
+	 * @param int    price
+	 * @param int    shipping
+	 * @return boolean
+	 */
 	@RequestMapping("/insertCartItem.do")
 	@ResponseBody
 	public boolean insertItem(CartDto vo) {
@@ -57,7 +69,7 @@ public class CartController {
 	public boolean deleteItem(CartDto vo) {
 		return cartDao.deleteCart(vo);
 	}
-	
+
 	@RequestMapping(value = "/CartEx.do", method = RequestMethod.GET)
 	public String renderEx() {
 		return "cartEx";

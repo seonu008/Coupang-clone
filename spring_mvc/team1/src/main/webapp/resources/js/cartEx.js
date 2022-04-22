@@ -131,18 +131,14 @@ function selectedList() {
 		} else {
 			unCheckedArr.push(chkboxList[i].value);
 			if(confirm('삭제하시겠습니까?')) {
-				
-				
-				const msg = valueDelete(chkboxList[i].value) == true ? "정상" : "실패";
-				alert('처리결과: ' + msg);
-				location.reload();
-				
+				valueDelete(chkboxList[i].value)
 			} else {
 				chkboxList[i].checked == true
 			}
 		}
 		
-	}	
+	}
+	location.reload();
 	
 }
 function selectAll(val) {
