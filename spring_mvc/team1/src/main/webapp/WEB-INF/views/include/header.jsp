@@ -19,13 +19,13 @@
 <link rel="stylesheet" href="/team1/css/reset.css" />
 <link rel="stylesheet" href="/team1/css/layout.css" />
 <link rel="stylesheet" href="/team1/css/mainPage.css" />
+<link rel="stylesheet" href="/team1/css/detail.css" />
 <script src="/team1/js/gsap/gsap.min.js"></script>
 <script src="/team1/js/axios.min.js"></script>
 <script src="/team1/js/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <link rel="stylesheet" href="/team1/css/orderPage.css" />
-<script src="/team1/js/orderPage.js" defer></script>
 <link rel="stylesheet" href="/team1/css/searchPage.css" />
 <script src="/team1/js/header.js" defer></script>
 <script src="/team1/js/searchPage.js" defer></script>

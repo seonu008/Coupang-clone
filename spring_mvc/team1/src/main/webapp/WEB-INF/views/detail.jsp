@@ -27,9 +27,10 @@
             <tbody>
               <tr>
                 <td>
-                <span class="rating"></span>
-                <span id="rating" class="${key.rating}"><img src="image/rating.svg" /></span>
-                <span id="star"></span></td>
+	                <span class="rating"></span>
+	                <span id="rating" class="${key.rating}"><img src="image/rating.svg" /></span>
+	                <span id="star"></span>
+                </td>
               </tr>
             </tbody>
           </div>
@@ -47,7 +48,7 @@
                 </div>
               <div>
                 <div>
-                    <span class="shipping">${key.shipping}</span></td>
+                    <span class="shipping">${key.shipping}</span>
                 </div>
                 <div>
                   <div class="prodPdd">
@@ -90,8 +91,8 @@
                 </div>
               </div>
               <div id="btns" class="btns">
-                <a href="" id="btns1" class="btns1">장바구니 담기</a>
-                <a href="" id="btns2" class="btns2">바로구매<span class="material-icons">
+                <a href="./InsertCart.do?no=${key.no}" id="btns1" class="btns1">장바구니 담기</a>
+                <a href="./member/OrderPage.do?no=${key.no}" id="btns2" class="btns2">바로구매<span class="material-icons">
                   chevron_right
                   </span></a>
               </div>
