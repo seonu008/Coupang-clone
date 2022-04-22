@@ -29,7 +29,9 @@
 <link rel="stylesheet" href="/team1/css/searchPage.css" />
 <script src="/team1/js/header.js" defer></script>
 <script src="/team1/js/searchPage.js" defer></script>
+<script src="/team1/js/rate.js" defer></script>
 <script src="/team1/js/renderDetail.js" defer></script>
+
 </head>
 <header>
 	<article class="topBar">
