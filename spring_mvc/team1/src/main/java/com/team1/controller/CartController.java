@@ -7,8 +7,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.team1.model.CartDao;
@@ -26,7 +28,7 @@ public class CartController {
 	@GetMapping("/cartItems.do")
 	@ResponseBody
 	public Map<String, List<CartDto>> getItem(CartDto vo) {
-		
+
 		// 유저아이디가 없을 경우 test01 강제로 집어넣어서 처리
 		if (vo.getUserId() == null || vo.getUserId().equals("")) {
 			vo.setUserId("test01");
@@ -35,22 +37,30 @@ public class CartController {
 		List<CartDto> result = cartDao.getCartList(vo);
 		cartList.put("cartList", result);
 		return cartList;
-		
+
 	}
-	
+
+	@RequestMapping("/insertCartItem.do")
+	@ResponseBody
+	public boolean insertItem(CartDto vo) {
+		return cartDao.insertCart(vo);
+	}
+
 	@RequestMapping("/updateCartItem.do")
 	@ResponseBody
 	public boolean updateItem(CartDto vo) {
-		System.out.println("어?");
-		
 		return cartDao.updateCart(vo);
 	}
 
-	@RequestMapping(value="/CartEx.do", method=RequestMethod.GET)
+	@RequestMapping("/deleteCartItem.do")
+	@ResponseBody
+	public boolean deleteItem(CartDto vo) {
+		return cartDao.deleteCart(vo);
+	}
+	
+	@RequestMapping(value = "/CartEx.do", method = RequestMethod.GET)
 	public String renderEx() {
 		return "cartEx";
 	}
-	
-	
-	
+
 }

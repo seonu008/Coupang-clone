@@ -21,6 +21,7 @@ public class CartDto {
 	private int shipping;
 	private Date regDt;
 	private Date modDt;
+	private String[] itemArr;
 	
 	// item dto
 

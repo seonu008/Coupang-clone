@@ -12,25 +12,58 @@ public class CartDao {
 	
 	@Autowired
 	public SqlSessionFactory sqlSessionFactory;
-//	
-//	public int insertItem(ItemDto itemDto) {
-//		int result = 0;
-//		SqlSession sqlSession = sqlSessionFactory.openSession();
-//		result = sqlSession.insert("insertItem",itemDto);
-//		sqlSession.commit();
-//		sqlSession.close();
-//		return result;
-//	}
-//	
-//	
-//	public List<ItemDto> getAllItemList() {
-//		List<ItemDto> itemList = null;
-//		SqlSession sqlSession = sqlSessionFactory.openSession();
-//		itemList = sqlSession.selectList("getAllItemList");
-//		sqlSession.close();
-//		return itemList;
-//	}
 
+	public int selectCountCart (CartDto dto) {
+		System.out.println(dto);
+		SqlSession sqlSession = null;
+		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
+			try {
+				sqlSession = sqlSessionFactory.openSession();
+				int result = (Integer)sqlSession.selectOne("selectCountCart", dto);
+				sqlSession.close();
+				return result;
+				
+			} catch (Exception e) {
+				System.out.println("selectCountCart 에러발생");
+				e.printStackTrace();
+				return -1;
+			} finally {
+				sqlSession.close();
+			}
+		}
+		return 0;
+	}
+	
+
+	public boolean insertCart(CartDto dto) {
+		System.out.println(dto);
+		SqlSession sqlSession = null;
+		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
+			int cnt = selectCountCart(dto);
+			if(cnt > 0) {
+				return updateCart(dto);
+			} else if (cnt == 0) {
+				// insert
+				try {
+					sqlSession = sqlSessionFactory.openSession();
+					sqlSession.insert("insertCart", dto);
+					sqlSession.close();
+					return true;
+				} catch (Exception e) {
+					System.out.println("insertCart 에러발생");
+					e.printStackTrace();
+				} finally {
+					sqlSession.close();
+				}
+				return false;
+			} else {
+				return false;
+			}
+			
+		}
+		return false;
+	}
+	
 	
 	public boolean updateCart(CartDto dto) {
 		System.out.println(dto);
@@ -38,7 +71,8 @@ public class CartDao {
 		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
 			try {
 				sqlSession = sqlSessionFactory.openSession();
-				sqlSession.selectList("updateCart", dto);
+				sqlSession.update("updateCart", dto);
+				sqlSession.close();
 				return true;
 			} catch (Exception e) {
 				System.out.println("updateCart 에러발생");
@@ -50,6 +84,27 @@ public class CartDao {
 		}
 		return false;
 	}
+	
+	public boolean deleteCart(CartDto dto) {
+		System.out.println(dto);
+		SqlSession sqlSession = null;
+		if(dto.getUserId() != null && !"".equals(dto.getUserId())) {
+			try {
+				sqlSession = sqlSessionFactory.openSession();
+				sqlSession.delete("deleteCart", dto);
+				sqlSession.close();
+				return true;
+			} catch (Exception e) {
+				System.out.println("deleteCart 에러발생");
+				e.printStackTrace();
+				return false;
+			} finally {
+				sqlSession.close();
+			}
+		}
+		return false;
+	}
+
 
 
 	public List<CartDto> getCartList(CartDto dto) {
