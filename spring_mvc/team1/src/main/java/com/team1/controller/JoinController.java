@@ -48,12 +48,12 @@ public class JoinController {
 		
 		AuthDto authDto = new AuthDto(memberDto.getId(), "ROLE_MEMBER");
 		int result2 = memberDao.insertMemberAuth(authDto);
-		System.out.println("memberDto :"+memberDto);
-		System.out.println("authDto :"+authDto);
-		System.out.println("joinprocess insert :"+result);
-		System.out.println("joinprocess insert :"+result2);
+//		System.out.println("memberDto :"+memberDto);
+//		System.out.println("authDto :"+authDto);
+//		System.out.println("joinprocess insert :"+result);
+//		System.out.println("joinprocess insert :"+result2);
 		
-		return"redirect:../CustomLogin.do";
+		return "redirect:../CustomLogin.do";
 	}
 	@ResponseBody    
 	@PostMapping("/IDCheck.do")

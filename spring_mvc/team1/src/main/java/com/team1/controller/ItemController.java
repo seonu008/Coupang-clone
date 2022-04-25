@@ -59,7 +59,7 @@ public class ItemController {
 	@ResponseBody
 	@RequestMapping("/Items.do")
 	public Map<String,List<ItemDto>> jsonList() {
-		System.out.println("items controller start");
+		//System.out.println("items controller start");
 		Map<String,List<ItemDto>> hashMap = new HashMap<>();
 		List<ItemDto> itemList = itemDao.getAllItemList();
 		hashMap.put("itemList",itemList);
