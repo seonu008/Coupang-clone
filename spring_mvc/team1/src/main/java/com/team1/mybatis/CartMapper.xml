@@ -2,69 +2,69 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jjang051.mybatis.board">
 
-	<!-- 아이디 별 중복체크 -->
-	<select id="selectCountCart" parameterType="CartDto" resultType="CartDto">
-		SELECT COUNT(itemNo)
-		  FROM CART
-		 WHERE USER_ID = #{userId}
-		   AND ITEM_NO = #{itemNo}
-		 ORDER BY REG_DT ASC
-	</select>
-	
-	<!-- 장바구니 추가 -->
-	<insert id="inserCart" parameterType="CartDto">
-		INSERT INTO CART (
-		       USER_ID
-		     , ITEM_NO
-		     , ITEM_AMOUNT
-		     , PRICE
-		     , SHIPPING
-			)
-		VALUES (
-		       #{userId}
-		     , #{itemNo}
-		     , #{itemAmount}
-		     , #{price}
-		     , #{shipping}
-			)
-	</insert>
-	
-	<!-- 장바구니 업데이트 -->
-	<update id="updateCart" parameterType="CartDto">
-		UPDATE CART
-		   SET ITEM_AMOUNT = #{itemAmount}
-			<if test="price != null and price != 0">
-		     , PRICE = #{price}
-			</if>
-			<if test="shipping != null and shipping != 0">
-		     , SHIPPING = #{shipping}
-			</if>
-		 WHERE USER_ID = #{userId}
-		   AND ITEM_NO = #{itemNo}
-	</update>
-	
-	<!-- 장바구니 삭제 -->
-	<delete id="deleteCart" parameterType="CartDto">
-		DELETE FROM CART
-		 WHERE USER_ID = #{userId}
-		   AND ITEM_NO = #{itemNo}
-	</delete>
-	
-	<!-- 아이디 기준 장바구니 조회 -->
-	<select id="selectCartList" parameterType="CartDto" resultType="CartDto">
-		SELECT a.USER_ID userId
-		     , a.ITEM_NO itemNo
-		     , a.ITEM_AMOUNT itemAmount
-		     , a.SHIPPING shipping
-		     , TO_NUMBER(REPLACE(b.PRICE, ',' ,'')) price
+  <!-- 아이디 별 중복체크 -->
+  <select id="selectCountCart" parameterType="CartDto" resultType="int">
+    SELECT COUNT(ITEM_NO)
+      FROM CART
+     WHERE USER_ID = #{userId}
+       AND ITEM_NO = #{itemNo}
+     ORDER BY REG_DT ASC
+  </select>
+  
+  <!-- 장바구니 추가 -->
+  <insert id="insertCart" parameterType="CartDto">
+    INSERT INTO CART (
+           USER_ID
+         , ITEM_NO
+         , ITEM_AMOUNT
+         , PRICE
+         , SHIPPING
+      )
+    VALUES (
+           #{userId}
+         , #{itemNo}
+         , #{itemAmount}
+         , #{price}
+         , #{shipping}
+      )
+  </insert>
+  
+  <!-- 장바구니 업데이트 -->
+  <update id="updateCart" parameterType="CartDto">
+    UPDATE CART
+       SET ITEM_AMOUNT = #{itemAmount}
+      <if test="price != null and price != 0">
+         , PRICE = #{price}
+      </if>
+      <if test="shipping != null and shipping != 0">
+         , SHIPPING = #{shipping}
+      </if>
+     WHERE USER_ID = #{userId}
+       AND ITEM_NO = #{itemNo}
+  </update>
+  
+  <!-- 장바구니 삭제 -->
+  <delete id="deleteCart" parameterType="CartDto">
+    DELETE FROM CART
+     WHERE USER_ID = #{userId}
+       AND ITEM_NO = #{itemNo}
+  </delete>
+  
+  <!-- 아이디 기준 장바구니 조회 -->
+  <select id="selectCartList" parameterType="CartDto" resultType="CartDto">
+    SELECT a.USER_ID userId
+         , a.ITEM_NO itemNo
+         , a.ITEM_AMOUNT itemAmount
+         , a.SHIPPING shipping
+         , TO_NUMBER(REPLACE(b.PRICE, ',' ,'')) price
              , b.IMGURL imgUrl
              , b.TITLE title
-		  FROM CART a
+      FROM CART a
          INNER JOIN ITEM b
             ON a.ITEM_NO = b.no
-		 WHERE USER_ID = #{userId}
-		 ORDER BY REG_DT ASC
-	</select>
+     WHERE USER_ID = #{userId}
+     ORDER BY REG_DT ASC
+  </select>
 
 
 </mapper>

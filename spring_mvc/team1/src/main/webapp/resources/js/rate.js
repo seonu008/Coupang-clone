@@ -47,12 +47,19 @@ $(function() {
 	})
 	
 	
-	$('#btns1').click(function(){
+/*	$('#btns1').click(function(){
 		$.fn.showFlex = function() {
- 		 this.css('display','flex')
+      this.css('display','flex')
 			}
 			$('#CartTable').showFlex();
-	  })
+	  })*/
 	  
-	
+	$('#CartClose').click(function() {
+    $('#CartTable').css('display', 'none').fadeOut(1000);
+  })
+
+  $('#btns1').click(function() {
+    $('#CartTable').css('display', 'flex').show().delay(1000).fadeOut(100);
+  })
+
 })
