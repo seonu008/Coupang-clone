@@ -36,17 +36,41 @@
 
 #searchWrap .searchContentsBox { width: 1289px; display: -webkit-box; display: -ms-flexbox; display: flex; position: relative; margin: 0 auto; }
 
-#searchWrap .searchContentsBox .search_filter { width: 15%; }
+#searchWrap .searchContentsBox .search_filter { width: 17%; }
 
-#searchWrap .searchContentsBox .search_filter .search_filter_content { border: 1px solid #eee; border-bottom: none; margin: 0 15px; padding-left: 10px; }
+#searchWrap .searchContentsBox .search_filter .search_filter_content { border: 1px solid #eee; margin: 0 15px; padding-left: 10px; }
 
 #searchWrap .searchContentsBox .search_filter .search_filter_content h4 { padding-top: 20px; font-size: 18px; line-height: 1.5; }
 
-#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category { padding: 0 10px 8px; border-bottom: 1px solid #efefef; }
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category { padding: 0 10px 8px; }
 
 #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category h5 { padding-top: 10px; font-size: 14px; }
 
-#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .search_category_title { margin: 8px 0; font-size: 12px; }
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category h5.selected { color: #0073e9; font-weight: 600; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 { color: #444; cursor: pointer; width: 100%; border: none; text-align: left; outline: none; font-size: 15px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; font-weight: 600; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion span, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 span, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 span { font-size: 18px; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .more, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .more2, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .more3, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .more, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .more2, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .more3, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .more, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .more2, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .more3 { padding-top: 10px; display: none; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .more.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .more2.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .more3.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .more.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .more2.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .more3.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .more.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .more2.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .more3.on { display: block; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .more.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .more2.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .more3.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .more.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .more2.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .more3.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .more.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .more2.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .more3.off { display: none; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .less, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .less2, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .less3, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .less, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .less2, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .less3, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .less, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .less2, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .less3 { padding-top: 10px; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .less.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .less2.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .less3.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .less.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .less2.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .less3.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .less.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .less2.off, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .less3.off { display: none; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .less.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .less2.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion .less3.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .less.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .less2.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2 .less3.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .less.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .less2.on, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3 .less3.on { display: block; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion:after, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion2::after, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .accordion3::after { /* content: '\e5cf'; */ color: #777; font-weight: bold; float: right; margin-left: 5px; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .panel, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .panel2, #searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .panel3 { padding-left: 8px; font-size: 14px; background-color: white; display: none; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .search_category_box .search_category_title { margin: 8px 0; font-size: 12px; }
+
+#searchWrap .searchContentsBox .search_filter .search_filter_content .search_filter_category .search_category_component .search_filter_items .search_filter_item .search_category_box .search_category_title p.selected { color: #0073e9; font-weight: 600; }
 
 #searchWrap .searchContentsBox .searchProduct { width: 100%; margin: 0 auto; }
 
@@ -73,39 +97,3 @@
 #searchWrap .searchContentsBox .searchProduct ul a li .info .itemRating .stars .stars-back { display: -webkit-box; display: -ms-flexbox; display: flex; position: absolute; overflow: hidden; white-space: nowrap; color: transparent; text-shadow: 0 0 0 #f0f0f0; }
 
 #searchWrap .searchContentsBox .searchProduct ul a li .info .itemRating .stars .stars-real { display: -webkit-box; display: -ms-flexbox; display: flex; position: absolute; overflow: hidden; white-space: nowrap; color: transparent; text-shadow: 0 0 0 #ed9931; }
-
-.main-today .img { width: 1920px; height: 450px; background-image: url("/team1/images/main-today.img.jpg"); }
-
-.discovery .row1 .img1 { background-image: url("/team1/images/discovery.row1.img1.jpg"); }
-
-.discovery .row1 .img2 { background-image: url("/team1/images/discovery.row1.img2.jpg"); }
-
-.discovery .row2 .img1 { background-image: url("/team1/images/discovery.row2.img1.jpg"); }
-
-.discovery .row2 .img2 { background-image: url("/team1/images/discovery.row2.img2.jpg"); }
-
-.discovery .row2 .img3 { background-image: url("/team1/images/discovery.row2.img3.jpg"); }
-
-.discovery .row2 .img4 { background-image: url("/team1/images/discovery.row2.img4.jpg"); }
-
-.discovery .row3 .img1 { background-image: url("/team1/images/discovery.row3.img1.jpg"); }
-
-.discovery .row3 .img2 { background-image: url("/team1/images/discovery.row3.img2.jpg"); }
-
-.discovery .row3 .img3 { background-image: url("/team1/images/discovery.row3.img3.jpg"); }
-
-.trend .title { background-image: url("/team1/images/trend.title.png"); }
-
-.trend .img { background-image: url("/team1/images/trend.img.jpg"); }
-
-.trend .items .row1 .img1 { background-image: url("/team1/images/trend.items.row1.img1.jpg"); }
-
-.trend .items .row1 .img2 { background-image: url("/team1/images/trend.items.row1.img2.jpg"); }
-
-.trend .items .row1 .img3 { background-image: url("/team1/images/trend.items.row1.img3.jpg"); }
-
-.trend .items .row2 .img1 { background-image: url("/team1/images/trend.items.row2.img1.jpg"); }
-
-.trend .items .row2 .img2 { background-image: url("/team1/images/trend.items.row2.img2.jpg"); }
-
-.trend .items .row2 .img3 { background-image: url("/team1/images/trend.items.row2.img3.jpg"); }

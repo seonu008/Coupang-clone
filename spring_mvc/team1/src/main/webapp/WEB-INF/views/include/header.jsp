@@ -24,7 +24,7 @@
 <script src="/team1/js/axios.min.js"></script>
 <script src="/team1/js/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <link rel="stylesheet" href="/team1/css/orderPage.css" />
 <link rel="stylesheet" href="/team1/css/searchPage.css" />
 <script src="/team1/js/header.js" defer></script>
