@@ -46,11 +46,13 @@ public class HomeController {
 		
 		
 		String no = req.getParameter("no");
+		System.out.println(no);
 
 		model.addAttribute("no", no);
 		return "detail";
 	}
-	
+
+
 	@GetMapping("/CustomLogin.do")
 	public String loginInput(String error, String logout, Model model) {
 		System.out.println("customLogin");

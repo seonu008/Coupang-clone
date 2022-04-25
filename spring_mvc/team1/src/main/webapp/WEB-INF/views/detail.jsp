@@ -91,7 +91,7 @@
                 </div>
               </div>
               <div id="btns" class="btns">
-                <a href="./InsertCart.do?no=${key.no}" id="btns1" class="btns1">장바구니 담기</a>
+                <a id="btns1" class="btns1">장바구니 담기</a>
                 <a href="./member/OrderPage.do?no=${key.no}" id="btns2" class="btns2">바로구매<span class="material-icons">
                   chevron_right
                   </span></a>
@@ -99,10 +99,10 @@
               </div>
                 <div id="CartTable" class="CartTable">
                 <div class="Cart">
-                  <a href="" id="CartClose" class="CartClose"></a>
+                  <a id="CartClose" class="CartClose"></a>
                   <p>상품이 장바구니에 담겼습니다.</p>
                   <div class="CartBtns">
-                  <a href="" class="CartBtn">장바구니 바로가기<span class="material-icons">
+                  <a href="./InsertCart.do?no=${key.no}" class="CartBtn">장바구니 바로가기<span class="material-icons">
                     chevron_right
                     </span></a>
                   </div>
@@ -134,5 +134,4 @@
       <img src="${key.imgDetailUrl}" alt="" />
     </div>
 </main>
-
-</html>
+<%@ include file="include/footer.jsp"%> 

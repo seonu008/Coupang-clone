@@ -31,7 +31,7 @@ public class ItemController {
 	
 	@RequestMapping(value = "/SearchPage.do", method = RequestMethod.GET)
 	public String SearchPage(HttpServletRequest request, ModelMap model) {
-		//System.out.println(request.getParameter("query"));
+		System.out.println(request.getParameter("query"));
 		model.addAttribute("query", request.getParameter("query"));
 		return "searchPage";
 	}
