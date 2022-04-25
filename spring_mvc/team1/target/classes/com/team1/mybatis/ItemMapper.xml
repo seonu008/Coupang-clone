@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team1.mybatis.board">
+	<insert id="insertItem" parameterType="ItemDto">
+		INSERT INTO ITEM VALUES
+		(SEQ_ITEM.NEXTVAL,
+		#{imgUrl},
+		#{title},
+		#{price},
+		#{shipping},
+		#{rating},
+		#{imgDetailUrl}
+		)
+	</insert>
+	<select id="getAllItemList" resultType="ItemDto">
+		SELECT * FROM ITEM ORDER
+		BY
+		NO DESC
+	</select>
+	<select id="getItemByNo" resultType="ItemDto"	parameterType="String">
+		SELECT * FROM ITEM WHERE NO = #{no}
+	</select>
+	<select id="getSearchAllList" resultType="ItemDto"
+		parameterType="HashMap">
+		SELECT * FROM ITEM WHERE ${searchSelect} LIKE
+		'%'||#{searchWord}||'%'
+	</select>
+</mapper>
