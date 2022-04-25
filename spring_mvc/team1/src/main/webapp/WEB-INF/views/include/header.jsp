@@ -61,7 +61,7 @@
 			<li><a href="/team1/member/OrderPage.do"> <span
 					class="material-icons-outlined">person</span> <span>마이쿠팡</span>
 			</a></li>
-			<li><a href="/CartView.do"> <span
+			<li><a href="/team1/CartEx.do"> <span
 					class="material-icons-outlined">shopping_cart</span> <span>장바구니</span>
 			</a></li>
 		</ul>
