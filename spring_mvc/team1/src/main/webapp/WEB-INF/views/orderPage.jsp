@@ -169,7 +169,9 @@
 						<p>${memberDto.regdate} 도착 보장</p>
 					</div>
 					<div class="bundleItemList">
+				
                 <div class="bundleTitle">제품이름${key.title}</div>
+                
                 <div class="bundleDeliveryPrice">수량 1개 / 배송비 2,500원</div>
 					</div>
 				</div>

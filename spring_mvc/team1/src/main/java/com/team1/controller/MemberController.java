@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.team1.model.CartDao;
+import com.team1.model.CartDto;
 import com.team1.model.ItemDao;
 import com.team1.model.ItemDto;
 import com.team1.model.MemberDto;
@@ -42,6 +44,9 @@ public class MemberController {
 	private MemberMapper memberMapper;
 
 	@Autowired
+	CartDao cartDao;
+	
+	@Autowired
 	ItemDao itemDao;
 	
 	@GetMapping("/List.do")
@@ -52,13 +57,18 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/OrderPage.do", method = RequestMethod.GET)
-	public String OrderPage(Principal principal, Model model, HttpServletRequest req) {
+	public String OrderPage(CartDto vo, Principal principal, Model model, HttpServletRequest req) {
 
 		model.addAttribute("memberDto", this.memberMapper.read(principal.getName()));
 
 		
 		ItemDto itemDto = itemDao.getItemByNo(req.getParameter("no"));
+		
+		List<CartDto> cartDto = cartDao.getCartList(vo);
+		
 		model.addAttribute("key",itemDto);
+		model.addAttribute("Ckey",cartDto);
+		System.out.print(cartDto);
 		
 		return "orderPage";
 	}

@@ -1,8 +1,8 @@
 $.ajax({
 	url: "OrderPage.do",
-	success: function(data) {
+	success: function() {
 
-		console.log(key);
+		
 		let output = "";
 			output += `
             	<div class="bundleTitle">제품이름${key.title}</div>

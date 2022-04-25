@@ -101,8 +101,8 @@ $.ajax({
 		
 		
 		orderBtns  = '<div class="order-buttons">';
-		orderBtns += '    <a id="continueShoopingBtn" class="goShopping logging" href="/" data-view-type="shoppingCart" data-event-name="continuouslyShoppingClick" data-log-label="cart-p-continuouslyShoppingClick" data-coulog-type="clickEvent" data-listener-event-type="click">계속 쇼핑하기</a>';
-		orderBtns += '    <a href="javascript:void(0);" class="goPayment narrow" id="btnPay" data-pay-url="/cart/orderV3?isAllChecked=true">구매하기</a>';
+		orderBtns += '    <a id="continueShoopingBtn" class="goShopping logging" href="/team1" data-view-type="shoppingCart" data-event-name="continuouslyShoppingClick" data-log-label="cart-p-continuouslyShoppingClick" data-coulog-type="clickEvent" data-listener-event-type="click">계속 쇼핑하기</a>';
+		orderBtns += '    <a href="/team1/member/OrderPage.do" class="goPayment narrow" id="btnPay" data-pay-url="/team1/member/OrderPage.do?isAllChecked=true">구매하기</a>';
 		orderBtns += '    <div class="item-disabled" style="display: none;"></div>';
 		orderBtns += '</div>';
 		
@@ -150,13 +150,14 @@ function selectAll(val) {
 	}
 	selectedList();
 }
+
 function valueChange(index, value, price, userId, itemNo) {
 	let param = {userId: userId, itemNo: itemNo, itemAmount: value};
 	$.ajax({
 		url: "updateCartItem.do",
 		data: param,
 		contentType: 'application/json; charset=utf-8',
-		
+
 		success : function(resp) {
 			if (resp) {
 				location.reload();
@@ -169,8 +170,8 @@ function valueChange(index, value, price, userId, itemNo) {
 				location.reload();
         }
 	});
-	
 }
+
 
 // 1건 삭제
 function valueDelete(itemNo) {
