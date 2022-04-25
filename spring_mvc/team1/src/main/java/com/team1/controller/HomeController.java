@@ -49,6 +49,8 @@ public class HomeController {
 		System.out.println(no);
 
 		model.addAttribute("no", no);
+		model.addAttribute("price", itemDto.getPrice());
+		model.addAttribute("shipping", itemDto.getShipping());
 		return "detail";
 	}
 

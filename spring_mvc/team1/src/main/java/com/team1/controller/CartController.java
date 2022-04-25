@@ -54,8 +54,15 @@ public class CartController {
 	 */
 	@RequestMapping("/insertCartItem.do")
 	@ResponseBody
-	public boolean insertItem(CartDto vo) {
-		return cartDao.insertCart(vo);
+	public String insertItem(CartDto vo) {
+		System.out.println("vo==="+vo);
+		boolean result = cartDao.insertCart(vo);
+		if(result) {
+			return "ok";
+		} else {
+			return "fail";
+		}
+		 
 	}
 
 	@RequestMapping("/updateCartItem.do")

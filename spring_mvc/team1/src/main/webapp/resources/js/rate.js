@@ -47,13 +47,7 @@ $(function() {
 	})
 
 
-	$('#CartClose').click(function() {
-		$('#CartTable').css('display', 'none').fadeOut(1000);
-	})
-
-	$('#btns1').click(function() {
-		$('#CartTable').css('display', 'flex').show().delay(1000).fadeOut(100);
-	})
+	
 
 
 })
