@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -13,6 +14,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @Component
+@NoArgsConstructor
 public class CartDto {
 	private String userId;
 	private int itemNo;

@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.team1.model.CartDao;
+import com.team1.model.CartDto;
 import com.team1.model.ItemDao;
 import com.team1.model.ItemDto;
 import com.team1.model.MemberDto;
@@ -44,6 +46,9 @@ public class MemberController {
 	@Autowired
 	ItemDao itemDao;
 	
+	@Autowired
+	private CartDao cartDao;
+	
 	@GetMapping("/List.do")
 	public String list(HttpServletRequest request, Model model) {
 		List<MemberDto> memberList = memberDao.getAllMemberList(1, 5, null, null);
@@ -56,9 +61,13 @@ public class MemberController {
 
 		model.addAttribute("memberDto", this.memberMapper.read(principal.getName()));
 
-		
-		ItemDto itemDto = itemDao.getItemByNo(req.getParameter("no"));
-		model.addAttribute("key",itemDto);
+		CartDto cartDto = new CartDto();
+		cartDto.setUserId(principal.getName());
+		List<CartDto> cartDtos = cartDao.getCartList(cartDto);
+//		List<String> itemDtos = cartDtos.stream().map(cDto -> itemDao.getItemByNo(cDto.getItemNo()))
+//                .collect(Collectors.toList());
+//		ItemDto itemDto = itemDao.getItemByNo(req.getParameter("no"));
+		model.addAttribute("cartDtos",cartDtos);
 		
 		return "orderPage";
 	}

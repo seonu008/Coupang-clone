@@ -11,7 +11,10 @@
 <h1>custom logout page</h1>
 <form method='post' action="./CustomLogout.do">
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-<button>logout</button>
+<button class="logout">logout</button>
 </form>
 </body>
+<script type="text/javascript">
+document.querySelector(".logout").click()
+</script>
 </html>

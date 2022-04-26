@@ -35,6 +35,7 @@ public class CartDao {
 	}
 
 	public boolean insertCart(CartDto dto) {
+		System.out.println("insertCart");
 		System.out.println(dto);
 		SqlSession sqlSession = null;
 		if (dto.getUserId() != null && !"".equals(dto.getUserId())) {

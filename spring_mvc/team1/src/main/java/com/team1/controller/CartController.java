@@ -1,5 +1,6 @@
 package com.team1.controller;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,17 +28,13 @@ public class CartController {
 
 	@GetMapping("/cartItems.do")
 	@ResponseBody
-	public Map<String, List<CartDto>> getItem(CartDto vo) {
-
-		// 유저아이디가 없을 경우 test01 강제로 집어넣어서 처리
-		if (vo.getUserId() == null || vo.getUserId().equals("")) {
-			vo.setUserId("test01");
-		}
+	public Map<String, List<CartDto>> getItem(Principal principal) {
 		Map<String, List<CartDto>> cartList = new HashMap<String, List<CartDto>>();
-		List<CartDto> result = cartDao.getCartList(vo);
+		CartDto cartDto = new CartDto();
+		cartDto.setUserId(principal.getName());
+		List<CartDto> result = cartDao.getCartList(cartDto);
 		cartList.put("cartList", result);
 		return cartList;
-
 	}
 
 	/**
@@ -54,7 +51,8 @@ public class CartController {
 	 */
 	@RequestMapping("/insertCartItem.do")
 	@ResponseBody
-	public String insertItem(CartDto vo) {
+	public String insertItem(CartDto vo, Principal principal) {
+		vo.setUserId(principal.getName());
 		System.out.println("vo==="+vo);
 		boolean result = cartDao.insertCart(vo);
 		if(result) {

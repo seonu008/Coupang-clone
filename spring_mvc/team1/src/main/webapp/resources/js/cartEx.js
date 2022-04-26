@@ -32,11 +32,6 @@ $.ajax({
 		
 		showTable += "<tbody>";
 		showTable += '<tr>';
-//		showTable += '<td colspan="5" class="cart-bundle-title">';
-//		showTable += '<span class="title rocket">로켓배송 상품 </span>';
-//		showTable += '<span class="rocket-delivery-info">';
-//		showTable += '<span class="rocket-free">무료배송</span>';
-//		showTable += '(19,800원 이상 구매가능)</span>';
 		showTable += '<div id="lateRocketWowOverNightMessage" class="late-dawn-delivery-message" style="display: none">';
 		showTable += '</div>';
 		showTable += '</td>';
@@ -50,12 +45,7 @@ $.ajax({
 			const total = (vo.itemAmount * vo.price);
 			
 			orderTotal += total;
-			// 사진ID,  수량(select), 합계금액, 닫기 총 금액 , 배송비
-			// vo.itemAmount 수량
-			// vo.itemNo 아이템 고유키
-			// vo.modDt 수정일
-			// vo.price  가격
-			// vo.regDt 등록일
+
 			const isFreeShip = total > 18999 ? "무료" : "2,500원";
 			if (total < 19000) {
 				shippingTotal += 2500;
@@ -64,14 +54,11 @@ $.ajax({
 			showTable += '<td><input type="checkbox" checked="checked" class="dealSelectChk" name="chkItem" id="cartNo' + index + '" value="' + vo.itemNo + '" onClick="selectedList();"></td>'; // 체크박스 
 			showTable += '<td class="cart-deal-item__image "><img src="' + vo.imgUrl + '" width="78" height="78" class="product-img img" alt="' + vo.title + '">' + "</td>"; // 이미지
 			showTable += '<td class="product-box"><div class="product-name-part">' + vo.title + "</div>"; // 상품명
-			//showTable += '<td id="total' + index + '">' + vo.price + "</td>"; // 상품가격
 			showTable += '<td><span class="select-select">' + vo.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + '원' + renderSelectbox(endCnt, vo.itemAmount, index, vo.price, vo.userId, vo.itemNo) + '</span>';  // 수량
 			showTable += '<span class="unit-price-area"><span class="unit-price" id="total' + index + '">' + total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + '원</span></span>'; // 상품합계
 			showTable += '<span class="delete-option" onClick="valueDelete(' + vo.itemNo + ');alert(\'삭제되었습니다\');location.reload();"></span>' //개별삭제 버튼
 			showTable += '</td>'
 			showTable += '<td class="delivery-fee" rowspan="1" headers="th-delivery-fee"><span class="delivery-fee__free">' + isFreeShip + "</span></td>"; // 배송비
-			
-			//file:///C:\Users\생략\이력서.jpg
 			showTable += "</tr>"; 
 		}
 		
@@ -102,7 +89,7 @@ $.ajax({
 		
 		orderBtns  = '<div class="order-buttons">';
 		orderBtns += '    <a id="continueShoopingBtn" class="goShopping logging" href="/" data-view-type="shoppingCart" data-event-name="continuouslyShoppingClick" data-log-label="cart-p-continuouslyShoppingClick" data-coulog-type="clickEvent" data-listener-event-type="click">계속 쇼핑하기</a>';
-		orderBtns += '    <a href="javascript:void(0);" class="goPayment narrow" id="btnPay" data-pay-url="/cart/orderV3?isAllChecked=true">구매하기</a>';
+		orderBtns += '    <a href="/team1/member/OrderPage.do" class="goPayment narrow" id="btnPay" data-pay-url="/cart/orderV3?isAllChecked=true">구매하기</a>';
 		orderBtns += '    <div class="item-disabled" style="display: none;"></div>';
 		orderBtns += '</div>';
 		

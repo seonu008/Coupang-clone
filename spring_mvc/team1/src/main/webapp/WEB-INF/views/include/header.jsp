@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -24,7 +26,8 @@
 <script src="/team1/js/axios.min.js"></script>
 <script src="/team1/js/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <link rel="stylesheet" href="/team1/css/orderPage.css" />
 <link rel="stylesheet" href="/team1/css/searchPage.css" />
 <script src="/team1/js/header.js" defer></script>
@@ -37,7 +40,13 @@
 	<article class="topBar">
 		<section>
 			<menu id="headerMenu">
-				<li id="login" class="login"><a href="/team1/CustomLogin.do">로그인</a></li>
+				<sec:authorize access="!hasRole('ROLE_MEMBER')">
+					<li id="login" class="login"><a href="/team1/CustomLogin.do">로그인</a></li>
+				</sec:authorize>
+				
+				<sec:authorize access="hasRole('ROLE_MEMBER')">
+					<li id="login" class="login"><a href="/team1/CustomLogout.do">로그아웃</a></li>
+				</sec:authorize>
 				<li id="join" class="join"><a href="/team1/join/Join.do">회원가입</a></li>
 				<li class="csCenter"><a href="">고객센터</a></li>
 			</menu>
@@ -53,8 +62,9 @@
 				<option value="title">식품</option>
 				<option value="title">의류</option>
 				<option value="title">생필품</option>
-			</select> <input type="text" placeholder="검색할 내용을 입력해 주세요." name="search_word" class="to_search_word " 
-				id="search_word" value="${param.search_word }" />
+			</select> <input type="text" placeholder="검색할 내용을 입력해 주세요." name="search_word"
+				class="to_search_word " id="search_word"
+				value="${param.search_word }" />
 			<button class="btn btnBlack to_search search">
 				<span class="material-icons">search</span>
 			</button>
@@ -68,4 +78,4 @@
 			</a></li>
 		</ul>
 	</div>
-</header>	
+</header>
