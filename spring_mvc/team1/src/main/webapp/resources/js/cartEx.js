@@ -88,7 +88,7 @@ $.ajax({
 		
 		
 		orderBtns  = '<div class="order-buttons">';
-		orderBtns += '    <a id="continueShoopingBtn" class="goShopping logging" href="/" data-view-type="shoppingCart" data-event-name="continuouslyShoppingClick" data-log-label="cart-p-continuouslyShoppingClick" data-coulog-type="clickEvent" data-listener-event-type="click">계속 쇼핑하기</a>';
+		orderBtns += '    <a id="continueShoopingBtn" class="goShopping logging" href="/team1" data-view-type="shoppingCart" data-event-name="continuouslyShoppingClick" data-log-label="cart-p-continuouslyShoppingClick" data-coulog-type="clickEvent" data-listener-event-type="click">계속 쇼핑하기</a>';
 		orderBtns += '    <a href="/team1/member/OrderPage.do" class="goPayment narrow" id="btnPay" data-pay-url="/cart/orderV3?isAllChecked=true">구매하기</a>';
 		orderBtns += '    <div class="item-disabled" style="display: none;"></div>';
 		orderBtns += '</div>';
