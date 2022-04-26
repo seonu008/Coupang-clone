@@ -18,7 +18,7 @@ public class CartDto {
 	private int itemNo;
 	private int itemAmount;
 	private int price;
-	private int shipping;
+	private String shipping;
 	private Date regDt;
 	private Date modDt;
 	private String[] itemArr;

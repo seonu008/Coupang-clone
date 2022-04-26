@@ -102,9 +102,10 @@
                   <a id="CartClose" class="CartClose"></a>
                   <p>상품이 장바구니에 담겼습니다.</p>
                   <div class="CartBtns">
-                  <a href="./InsertCart.do?no=${key.no}" class="CartBtn">장바구니 바로가기<span class="material-icons">
+                  <a href="./CartEx.do?no=${key.no}" class="CartBtn">장바구니 바로가기<span class="material-icons">
                     chevron_right
-                    </span></a>
+                    </span>
+                  </a>
                   </div>
                 </div>
               </div>
@@ -132,6 +133,45 @@
         <li name="etc">배송/교환/반품 안내</li>
       </ul>
       <img src="${key.imgDetailUrl}" alt="" />
+      <input type="hidden" value="${shipping}" id="hiddenShipping"> 
+      <input type="hidden" value="${no}" id="no"> 
+      <input type="hidden" value="${price}" id="price"> 
     </div>
+    
 </main>
-<%@ include file="include/footer.jsp"%> 
+<script>
+	const price = parseInt($("#price").val().split(",").join(""));
+	
+	const shipping = $("#hiddenShipping").val();
+	const no = parseInt($("#no").val());
+	console.log("price===",price);
+	//console.log("price===",price.split(",").join(""));
+	
+	//console.log("price===",price,"====","no===",no,"===shipping",shipping);
+	
+	$("#btns1").on("click",function(){
+		console.log("btns1눌렀음");
+		//location.href="/team1/insertCartItem.do"
+		const sendData = {
+			itemAmount:parseInt($("#cnt").val()),
+			userId:"test01",
+			itemNo:parseInt(no),
+			price:parseInt(price),
+			shipping:shipping
+		}
+		$.ajax({
+			url:"/team1/insertCartItem.do",
+			data:sendData,
+			success:function(res) {
+				console.log(res);
+			}
+		})
+		$('#CartTable').css('display', 'flex').show();
+	})
+	$('#CartClose').click(function() {
+		$('#CartTable').hide();
+	})
+
+	
+</script>
+</html>
