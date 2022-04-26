@@ -60,15 +60,26 @@ public class MemberController {
 	public String OrderPage(CartDto vo, Principal principal, Model model, HttpServletRequest req) {
 
 		model.addAttribute("memberDto", this.memberMapper.read(principal.getName()));
-
 		
 		ItemDto itemDto = itemDao.getItemByNo(req.getParameter("no"));
 		
-		List<CartDto> cartDto = cartDao.getCartList(vo);
-		
 		model.addAttribute("key",itemDto);
-		model.addAttribute("Ckey",cartDto);
-		System.out.print(cartDto);
+		
+		
+		if (vo.getUserId() == null || vo.getUserId().equals("")) {
+			vo.setUserId("test01");
+		}
+		
+		Map<String, List<CartDto>> cartList = new HashMap<String, List<CartDto>>();
+		
+		List<CartDto> result = cartDao.getCartList(vo);
+		
+		cartList.put("cartList", result);
+		
+		System.out.println(cartList);
+		
+		model.addAttribute("cartDto",cartList);
+		
 		
 		return "orderPage";
 	}

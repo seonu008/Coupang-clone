@@ -34,8 +34,8 @@ public class CartController {
 		Map<String, List<CartDto>> cartList = new HashMap<String, List<CartDto>>();
 		List<CartDto> result = cartDao.getCartList(vo);
 		cartList.put("cartList", result);
+		
 		return cartList;
-
 	}
 
 	/**

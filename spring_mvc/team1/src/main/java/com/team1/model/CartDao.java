@@ -120,5 +120,15 @@ public class CartDao {
 		}
 	}
 
-
+	public List<CartDto> setCartList(CartDto vo) {
+		if (vo.getUserId() != null && !"".equals(vo.getUserId())) {
+			List<CartDto> cartList = null;
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			cartList = sqlSession.selectList("selectCartList", vo);
+			sqlSession.close();
+			return cartList;
+		} else {
+			return null;
+		}
+	}
 }
