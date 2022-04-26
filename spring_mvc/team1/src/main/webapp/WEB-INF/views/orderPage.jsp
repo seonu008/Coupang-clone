@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,8 +174,11 @@
 				<div class="dIBox">
 					<div class="bundleItemList">
 						<c:forEach var="cartDto" items="${cartDtos}">
-							<div class="bundleTitle">제품이름${cartDto.title}</div>
-							<div class="bundleDeliveryPrice">수량 1개 / 배송비 2,500원</div>
+							<div class="wrapper">
+								<div class="bundleTitle">${cartDto.title}</div>
+								<div class="bundleDeliveryPrice">${cartDto.itemAmount}개
+									/ 무료배송</div>
+							</div>
 						</c:forEach>
 					</div>
 				</div>
@@ -188,15 +192,19 @@
 						<tbody>
 							<tr>
 								<td class="dA_col dA_col_1">총상품가격</td>
-								<td class="dA_col dA_col_2">${key.price }원</td>
+
+
+								<td class="dA_col dA_col_2"><fmt:formatNumber
+										value="${ totalPrice }" pattern="#,###" />원</td>
 							</tr>
 							<tr>
 								<td class="dA_col dA_col_1">배송비</td>
-								<td class="dA_col dA_col_2">2,500원</td>
+								<td class="dA_col dA_col_2">0원</td>
 							</tr>
 							<tr>
 								<td class="dA_col dA_col_1">총결제금액</td>
-								<td class="dA_col dA_col_2">${key.price }원</td>
+								<td class="dA_col dA_col_2"><fmt:formatNumber
+										value="${ totalPrice }" pattern="#,###" />원</td>
 							</tr>
 							<tr>
 								<td class="dA_col dA_col_1">결제방법</td>

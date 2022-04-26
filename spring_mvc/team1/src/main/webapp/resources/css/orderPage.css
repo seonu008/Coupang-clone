@@ -185,6 +185,7 @@
   border-radius: 2px;
   font-size: 11px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 #wrap #ord .deliveryAddress .dATable {
@@ -259,6 +260,10 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #wrap #ord .deliveryInfo .dIBox .bundleItemList .bundleTitle {
@@ -270,6 +275,24 @@
   padding-right: 150px;
   font-size: 14px;
   color: #888;
+}
+
+#wrap #ord .deliveryInfo .dIBox .bundleItemList .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
 }
 
 #wrap #ord .agreeBox {

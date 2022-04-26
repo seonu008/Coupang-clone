@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.InputStream;
 import java.security.Principal;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -64,10 +66,15 @@ public class MemberController {
 		CartDto cartDto = new CartDto();
 		cartDto.setUserId(principal.getName());
 		List<CartDto> cartDtos = cartDao.getCartList(cartDto);
-//		List<String> itemDtos = cartDtos.stream().map(cDto -> itemDao.getItemByNo(cDto.getItemNo()))
-//                .collect(Collectors.toList());
-//		ItemDto itemDto = itemDao.getItemByNo(req.getParameter("no"));
 		model.addAttribute("cartDtos",cartDtos);
+		
+		// total price
+		Integer totalPrice = 0;
+		List<Integer> prices = cartDtos.stream().map(c -> Integer.valueOf(c.getPrice())).collect(Collectors.toList());
+		for (Integer integer : prices) {
+			totalPrice += integer;
+		}
+		model.addAttribute("totalPrice",totalPrice);
 		
 		return "orderPage";
 	}

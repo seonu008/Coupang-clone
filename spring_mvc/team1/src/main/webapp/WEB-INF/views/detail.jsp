@@ -90,8 +90,8 @@
 									</div>
 								</div>
 								<div id="btns" class="btns">
-									<a id="btns1" class="btns1">장바구니 담기</a> <a
-										href="./member/OrderPage.do?no=${key.no}" id="btns2"
+									<a id="btns1" class="btns1">장바구니 담기</a> 
+									<a	href="./member/OrderPage.do?no=${key.no}" id="btns2"
 										class="btns2">바로구매<span class="material-icons">
 											chevron_right </span></a>
 								</div>
@@ -164,6 +164,23 @@
 		})
 		$('#CartTable').css('display', 'flex').show();
 	})
+		$("#btns2").on("click", function() {
+		console.log("btns2눌렀음");
+		const sendData = {
+			itemAmount : parseInt($("#cnt").val()),
+			itemNo : parseInt(no),
+			price : parseInt(price),
+			shipping : shipping
+		}
+		$.ajax({
+			url : "/team1/insertCartItem.do",
+			data : sendData,
+			success : function(res) {
+				console.log(res);
+			}
+		})
+	})
+	
 	$('#CartClose').click(function() {
 		$('#CartTable').hide();
 	})
