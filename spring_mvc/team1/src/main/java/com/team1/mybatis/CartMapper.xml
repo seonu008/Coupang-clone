@@ -3,8 +3,8 @@
 <mapper namespace="com.jjang051.mybatis.board">
 
 	<!-- 아이디 별 중복체크 -->
-	<select id="selectCountCart" parameterType="CartDto" resultType="CartDto">
-		SELECT COUNT(itemNo)
+	<select id="selectCountCart" parameterType="CartDto" resultType="int">
+		SELECT COUNT(ITEM_NO)
 		  FROM CART
 		 WHERE USER_ID = #{userId}
 		   AND ITEM_NO = #{itemNo}
@@ -12,7 +12,7 @@
 	</select>
 	
 	<!-- 장바구니 추가 -->
-	<insert id="inserCart" parameterType="CartDto">
+	<insert id="insertCart" parameterType="CartDto">
 		INSERT INTO CART (
 		       USER_ID
 		     , ITEM_NO

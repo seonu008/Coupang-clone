@@ -53,20 +53,12 @@ public class MemberController {
 
 	@RequestMapping(value = "/OrderPage.do", method = RequestMethod.GET)
 	public String OrderPage(Principal principal, Model model, HttpServletRequest req) {
-//		System.out.println("현재 로그인 id: " + principal.getName());
-//		System.out.println("현재 로그인 한 사람 정보" + this.memberMapper.read(principal.getName()));
 
 		model.addAttribute("memberDto", this.memberMapper.read(principal.getName()));
 
-		String memberInfo = this.memberMapper.read(principal.getName()).toString();
 		
 		ItemDto itemDto = itemDao.getItemByNo(req.getParameter("no"));
 		model.addAttribute("key",itemDto);
-		
-		String no = req.getParameter("no");
-
-		model.addAttribute("no", no);
-		
 		
 		return "orderPage";
 	}

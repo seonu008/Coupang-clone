@@ -134,5 +134,4 @@
       <img src="${key.imgDetailUrl}" alt="" />
     </div>
 </main>
-
-</html>
+<%@ include file="include/footer.jsp"%> 

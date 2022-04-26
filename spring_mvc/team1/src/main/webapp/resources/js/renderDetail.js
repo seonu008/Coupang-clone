@@ -34,7 +34,10 @@ $.ajax({
 	        </ul>
 	        <div><img src="${key.imgDetailUrl}" alt="" /></div>
 	        `;
+		
 
+
+		
 		$("body").html(output);
 	}
 });

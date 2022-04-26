@@ -1,4 +1,4 @@
-
+var tmpId = '';
 
 // 체크박스 컨트롤
 // console.log(document.getElementsByName("chkItem"));
@@ -18,7 +18,7 @@ $.ajax({
 		showTable += '<thead>';
 		showTable += '<tr class="head">';
 		showTable += '<th scope="col" class="all-select-event" colspan="2">';
-		showTable += '<label><input title="모든 상품을 결제상품으로 설정" type="checkbox" checked="checked" class="all-deal-select"> 전체선택';
+		showTable += '<label><input title="모든 상품을 결제상품으로 설정" type="checkbox" checked="checked" class="all-deal-select" onClick="selectAll(this);"> 전체선택';
 		
 		showTable += '</label>';
 		showTable += '</th>';
@@ -43,13 +43,14 @@ $.ajax({
 		showTable += '</tr>';
 		
 
-
+		tmpId = res.cartList[0].userId;
 		for (let i=0; i<res.cartList.length; i++) {
 			const vo = res.cartList[i];
 			const index = i+1;
 			const total = (vo.itemAmount * vo.price);
+			
 			orderTotal += total;
-			// 사진ID,  수량(select), 합계끔액, 닫기 총 금액 , 배송비
+			// 사진ID,  수량(select), 합계금액, 닫기 총 금액 , 배송비
 			// vo.itemAmount 수량
 			// vo.itemNo 아이템 고유키
 			// vo.modDt 수정일
@@ -60,12 +61,13 @@ $.ajax({
 				shippingTotal += 2500;
 			}
 			showTable += '<tr class="cart-deal-item " data-item-status="CHECKED" data-adult="false" data-bundle-id="' + index + '" data-bundle-type="PRODUCT" data-app="" data-group-type="rocket" id="row' + index + '">'; 
-			showTable += '<td><input type="checkbox" checked="checked" class="dealSelectChk" name="chkItem" id="cartNo' + index + '" value="' + vo.itemNo + '"></td>'; // 체크박스 
+			showTable += '<td><input type="checkbox" checked="checked" class="dealSelectChk" name="chkItem" id="cartNo' + index + '" value="' + vo.itemNo + '" onClick="selectedList();"></td>'; // 체크박스 
 			showTable += '<td class="cart-deal-item__image "><img src="' + vo.imgUrl + '" width="78" height="78" class="product-img img" alt="' + vo.title + '">' + "</td>"; // 이미지
 			showTable += '<td class="product-box"><div class="product-name-part">' + vo.title + "</div>"; // 상품명
-			//showTable += '<td id="total' + index + '">' + vo.price + "</td>"; // 삼품가격
+			//showTable += '<td id="total' + index + '">' + vo.price + "</td>"; // 상품가격
 			showTable += '<td><span class="select-select">' + vo.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + '원' + renderSelectbox(endCnt, vo.itemAmount, index, vo.price, vo.userId, vo.itemNo) + '</span>';  // 수량
 			showTable += '<span class="unit-price-area"><span class="unit-price" id="total' + index + '">' + total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + '원</span></span>'; // 상품합계
+			showTable += '<span class="delete-option" onClick="valueDelete(' + vo.itemNo + ');alert(\'삭제되었습니다\');location.reload();"></span>' //개별삭제 버튼
 			showTable += '</td>'
 			showTable += '<td class="delivery-fee" rowspan="1" headers="th-delivery-fee"><span class="delivery-fee__free">' + isFreeShip + "</span></td>"; // 배송비
 			
@@ -84,7 +86,7 @@ $.ajax({
 		cartTotalInfo +=             '<h2 class="sr-only" id="cart-total-price">';
 		cartTotalInfo +=                 '장바구니 총 주문금액 정보';
 		cartTotalInfo +=             '</h2>';
-		cartTotalInfo +=             '총 상품가격';
+		cartTotalInfo +=             '전체 구매시 총 상품가격';
 		cartTotalInfo +=             '<em class="final-product-price">' + orderTotal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + '</em>원';
 		cartTotalInfo +=             '<span class="final-sale-area"></span>';
 		cartTotalInfo +=             '<span class="symbol-plus1"><span class="sr-only">더하기</span></span>';
@@ -115,6 +117,39 @@ $.ajax({
 });
 
 
+var checkedArr = [];
+var unCheckedArr = [];
+
+function selectedList() {
+	checkedArr = [];
+	unCheckedArr = [];
+	const chkboxList = document.getElementsByName('chkItem');
+	for (let i=0; i<chkboxList.length; i++) {
+		console.log(chkboxList[i]);
+		if(chkboxList[i].checked == true) {
+			checkedArr.push(chkboxList[i].value);
+		} else {
+			unCheckedArr.push(chkboxList[i].value);
+			if(confirm('삭제하시겠습니까?')) {
+				valueDelete(chkboxList[i].value)
+			} else {
+				chkboxList[i].checked == true
+			}
+		}
+		
+	}
+	location.reload();
+	
+}
+function selectAll(val) {
+	const isChecked = val.checked;
+	const chkboxList = document.getElementsByName('chkItem');
+	for (let i=0; i<chkboxList.length; i++) {
+		const id = chkboxList[i].id;
+		document.getElementById(id).checked = isChecked;
+	}
+	selectedList();
+}
 function valueChange(index, value, price, userId, itemNo) {
 	let param = {userId: userId, itemNo: itemNo, itemAmount: value};
 	$.ajax({
@@ -137,6 +172,36 @@ function valueChange(index, value, price, userId, itemNo) {
 	
 }
 
+// 1건 삭제
+function valueDelete(itemNo) {
+		let param = {userId: tmpId, itemNo: itemNo};
+		$.ajax({
+			url: "deleteCartItem.do",
+			data: param,
+			contentType: 'application/json; charset=utf-8',
+			
+			success : function(resp) {
+				console.log(itemNo + '삭제결과', resp);
+				return true;
+	        },
+	        error : function(resp) {
+				console.log(delItem + ' item Error', resp);
+				return false;
+	        }
+		});
+}
+
+
+// 전체삭제
+ function valueDeleteAll() {
+	for (let i=0; i<unCheckedArr.length; i++) {
+		const delItem = unCheckedArr[i];
+		valueDelete(delItem);
+	}
+	location.reload();
+}
+
+
 function renderSelectbox(endCnt, amount, index, price, userId, itemNo) {
 	let sBox = '<select class="quantity-select" name="itemAmount" id="amount' + index + '" onChange="valueChange(\'' + index + '\', this.value, ' +  price + ', \'' + userId + '\', ' + itemNo + ')">';
 	for(let i=0; i<endCnt-1; i++) {
@@ -148,4 +213,6 @@ function renderSelectbox(endCnt, amount, index, price, userId, itemNo) {
 	}
 	sBox += "</select>";
 	return sBox;
+
 }
+

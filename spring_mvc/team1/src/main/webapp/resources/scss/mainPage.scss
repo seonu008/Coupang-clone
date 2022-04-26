@@ -126,59 +126,147 @@
 
 .main-today {
   .img {
-    width: 1920px;
+    width: 100%;
     height: 450px;
     background-image: url("/team1/images/main-today.img.jpg");
+    background-repeat: no-repeat;
   }
 }
 
 .discovery {
-  .row1 {
-    .img1 {
-      background-image: url("/team1/images/discovery.row1.img1.jpg");
-    }
-    .img2 {
-      background-image: url("/team1/images/discovery.row1.img2.jpg");
-    }
+  width: 981px;
+  margin: 0 auto;
+  margin-top: 35px;
+  h3 {
+    font-size: 24px;
+    font-weight: 540;
+    margin-bottom: 25px;
   }
-  .row2 {
-    .img1 {
-      background-image: url("/team1/images/discovery.row2.img1.jpg");
-    }
-    .img2 {
-      background-image: url("/team1/images/discovery.row2.img2.jpg");
-    }
-    .img3 {
-      background-image: url("/team1/images/discovery.row2.img3.jpg");
-    }
-    .img4 {
-      background-image: url("/team1/images/discovery.row2.img4.jpg");
-    }
-  }
-  .row3 {
-    .img1 {
-      background-image: url("/team1/images/discovery.row3.img1.jpg");
-    }
-    .img2 {
-      background-image: url("/team1/images/discovery.row3.img2.jpg");
-    }
-    .img3 {
-      background-image: url("/team1/images/discovery.row3.img3.jpg");
+  .discoveryWrap {
+    border: 1px solid #d6d6d6;
+    .discoveryBox {
+      margin: 13px;
+      .dcBoxTop {
+        display: flex;
+        justify-content: space-between;
+        .dcBoxTopImg {
+          border: 1px solid #d6d6d6;
+          width: 468px;
+          height: 300px;
+        }
+        .img1 {
+          background-image: url("/team1/images/discovery.row1.img1.jpg");
+        }
+        .img2 {
+          background-image: url("/team1/images/discovery.row1.img2.jpg");
+        }
+      }
+      .dcBoxMid {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 13px;
+        margin-bottom: 13px;
+        .dcBoxMidImg {
+          width: 228.5px;
+          height: 300px;
+          border: 1px solid #d6d6d6;
+          box-sizing: border-box;
+        }
+        .img1 {
+          background-image: url("/team1/images/discovery.row2.img1.jpg");
+        }
+        .img2 {
+          background-image: url("/team1/images/discovery.row2.img2.jpg");
+        }
+        .img3 {
+          background-image: url("/team1/images/discovery.row2.img3.jpg");
+        }
+        .img4 {
+          background-image: url("/team1/images/discovery.row2.img4.jpg");
+        }
+      }
+      .dcBoxBtm {
+        display: flex;
+        justify-content: space-between;
+        .dcBoxBtmImg {
+          border: 1px solid #d6d6d6;
+          width: 228.5px;
+          height: 300px;
+          box-sizing: border-box;
+        }
+        .img1 {
+          width: 470px;
+          background-image: url("/team1/images/discovery.row3.img1.jpg");
+        }
+        .img2 {
+          background-image: url("/team1/images/discovery.row3.img2.jpg");
+        }
+        .img3 {
+          background-image: url("/team1/images/discovery.row3.img3.jpg");
+        }
+      }
     }
   }
 }
 
 .trend {
-  .title {
-    background-image: url("/team1/images/trend.title.png");
+  .trendMainTitle {
+    overflow: hidden;
+    width: 290px;
+    height: 52px;
+    background-position: 0px -123px;
+    background-image: url("/team1/images/trend.main.title.png");
+    margin-bottom: 20px;
   }
-  .img {
+  width: 1020px;
+  height: 673px;
+  margin: 25px auto;
+  box-sizing: border-box;
+  margin-bottom: 100px;
+  .trendWrap {
+    border-top: 2px solid #ee9200;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+  }
+  .trendTitleBox {
+    padding: 40px 0 0 22px;
+    .trendTitle {
+      width: 114px;
+      height: 28px;
+      background-image: url("/team1/images/trend.title.png");
+      background-size: cover;
+    }
+  }
+  .trendImg {
+    width: 325px;
+    height: 600px;
     background-image: url("/team1/images/trend.img.jpg");
   }
-  .items {
-    .row1 {
+  .trendItems {
+    .trendItemsBox {
+      width: 160px;
+      height: 269px;
+      margin: 22px 7px 0 15px;
+      p {
+        font-size: 12px;
+        margin-top: 5px;
+        &:last-child {
+          font-size: 13px;
+          font-weight: bold;
+        }
+      }
+    }
+    .trendItemImg {
+      width: 160px;
+      height: 160px;
+      //padding: 22px 7px 0 15px;
+    }
+    .trendItemsTop {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #d6d6d6;
       .img1 {
-        background-image: url("/team1/images/trend.items.row1.img1.jpg");
+        background-image: url("/team1/images/trend.items.row1.img1.png");
       }
       .img2 {
         background-image: url("/team1/images/trend.items.row1.img2.jpg");
@@ -187,7 +275,9 @@
         background-image: url("/team1/images/trend.items.row1.img3.jpg");
       }
     }
-    .row2 {
+    .trendItemsBtm {
+      display: flex;
+      justify-content: space-between;
       .img1 {
         background-image: url("/team1/images/trend.items.row2.img1.jpg");
       }
@@ -196,6 +286,24 @@
       }
       .img3 {
         background-image: url("/team1/images/trend.items.row2.img3.jpg");
+      }
+    }
+  }
+}
+footer {
+  .footerMenu {
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+    a {
+      text-decoration: none;
+      color: black;
+      border-right: 1px solid #888;
+      padding: 0 14px;
+      &:last-child {
+        border-right: none;
       }
     }
   }
